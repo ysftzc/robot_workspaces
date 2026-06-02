@@ -1,0 +1,9 @@
+franka_robot_state_broadcaster:
+  robot_type: {
+    type: string,
+    default_value: "fr3",
+  }
+  arm_prefix: {
+    type: string,
+    default_value: "",
+  }

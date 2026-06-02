@@ -1,0 +1,7 @@
+# For detailed information on configuring the parameter_bridge, please refer to:
+# https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge#example-5-configuring-the-bridge-via-yaml
+
+- topic_name: /clock
+  ros_type_name: rosgraph_msgs/msg/Clock
+  gz_type_name: gz.msgs.Clock
+  direction: GZ_TO_ROS

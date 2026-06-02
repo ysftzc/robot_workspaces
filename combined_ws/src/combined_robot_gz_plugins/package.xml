@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>combined_robot_gz_plugins</name>
+  <version>0.1.0</version>
+  <description>Gazebo Sim plugins for the combined tomato harvesting robot.</description>
+  <maintainer email="yusuf@todo.todo">yusuf</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>gz-msgs10</depend>
+  <depend>gz-plugin2</depend>
+  <depend>gz-sim8</depend>
+  <depend>gz-transport13</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

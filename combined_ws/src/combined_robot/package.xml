@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>combined_robot</name>
+  <version>0.1.0</version>
+  <description>Panther + Franka FR3 combined robot — Gazebo simulation</description>
+  <maintainer email="yusuf@todo.todo">yusuf</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- Build tool -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <!-- Runtime dependencies -->
+  <depend>husarion_ugv_description</depend>
+  <depend>husarion_ugv_controller</depend>
+  <depend>husarion_ugv_gazebo</depend>
+  <depend>franka_description</depend>
+  <depend>franka_gazebo_bringup</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>controller_manager</depend>
+  <depend>joint_state_broadcaster</depend>
+  <depend>diff_drive_controller</depend>
+  <depend>imu_sensor_broadcaster</depend>
+  <depend>joint_trajectory_controller</depend>
+  <depend>position_controllers</depend>
+  <depend>nav2_bringup</depend>
+  <depend>nav2_map_server</depend>
+  <depend>nav2_lifecycle_manager</depend>
+  <depend>nav2_msgs</depend>
+  <depend>control_msgs</depend>
+  <depend>moveit_msgs</depend>
+  <depend>moveit_ros_move_group</depend>
+  <depend>pilz_industrial_motion_planner</depend>
+  <depend>shape_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>robot_localization</depend>
+  <depend>slam_toolbox</depend>
+  <depend>geometry_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>std_srvs</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>rclpy</depend>
+  <depend>ament_index_python</depend>
+  <exec_depend>combined_robot_gz_plugins</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-tk</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

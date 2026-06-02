@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panther_with_franka">
+  <xacro:include filename="$(find franka_description)/robots/common/group_definition.xacro"/>
+  <xacro:include filename="$(find franka_description)/end_effectors/franka_hand/franka_hand.srdf.xacro"/>
+
+  <xacro:group_definition
+    prefix="fr3_"
+    group_name="fr3_arm"
+    tip_link="fr3_hand_tcp"/>
+
+  <disable_collisions link1="fr3_link0" link2="fr3_link1" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link0" link2="fr3_link2" reason="Never"/>
+  <disable_collisions link1="fr3_link0" link2="fr3_link3" reason="Never"/>
+  <disable_collisions link1="fr3_link0" link2="fr3_link4" reason="Never"/>
+  <disable_collisions link1="fr3_link1" link2="fr3_link2" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link1" link2="fr3_link3" reason="Never"/>
+  <disable_collisions link1="fr3_link1" link2="fr3_link4" reason="Never"/>
+  <disable_collisions link1="fr3_link2" link2="fr3_link3" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link2" link2="fr3_link4" reason="Never"/>
+  <disable_collisions link1="fr3_link2" link2="fr3_link6" reason="Never"/>
+  <disable_collisions link1="fr3_link3" link2="fr3_link4" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link3" link2="fr3_link5" reason="Never"/>
+  <disable_collisions link1="fr3_link3" link2="fr3_link6" reason="Never"/>
+  <disable_collisions link1="fr3_link3" link2="fr3_link7" reason="Never"/>
+  <disable_collisions link1="fr3_link4" link2="fr3_link5" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link4" link2="fr3_link6" reason="Never"/>
+  <disable_collisions link1="fr3_link4" link2="fr3_link7" reason="Never"/>
+  <disable_collisions link1="fr3_link4" link2="fr3_link8" reason="Never"/>
+  <disable_collisions link1="fr3_link5" link2="fr3_link6" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link5" link2="fr3_link7" reason="Never"/>
+  <disable_collisions link1="fr3_link6" link2="fr3_link7" reason="Adjacent"/>
+  <disable_collisions link1="fr3_link6" link2="fr3_link8" reason="Default"/>
+  <disable_collisions link1="fr3_link7" link2="fr3_link8" reason="Adjacent"/>
+
+  <xacro:franka_hand_srdf prefix="fr3_"/>
+
+  <disable_collisions link1="fr3_leftfinger" link2="fr3_leftfinger_tomato_pad" reason="Adjacent"/>
+  <disable_collisions link1="fr3_rightfinger" link2="fr3_rightfinger_tomato_pad" reason="Adjacent"/>
+  <disable_collisions link1="fr3_hand" link2="fr3_leftfinger_tomato_pad" reason="Never"/>
+  <disable_collisions link1="fr3_hand" link2="fr3_rightfinger_tomato_pad" reason="Never"/>
+  <disable_collisions link1="fr3_leftfinger_tomato_pad" link2="fr3_rightfinger_tomato_pad" reason="Gripper closed state"/>
+  <disable_collisions link1="fr3_leftfinger_tomato_pad" link2="fr3_rightfinger" reason="Gripper closed state"/>
+  <disable_collisions link1="fr3_rightfinger_tomato_pad" link2="fr3_leftfinger" reason="Gripper closed state"/>
+
+</robot>

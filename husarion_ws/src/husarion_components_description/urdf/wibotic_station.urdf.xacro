@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright 2025 Husarion. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wibotic_station">
+
+  <xacro:arg name="apriltag_mount_height" default="0.5" />
+  <xacro:arg name="apriltag_image" default="" />
+  <xacro:arg name="apriltag_size" default="0.08" />
+  <xacro:arg name="component_name" default="" />
+  <xacro:arg name="root_link" default="apriltag_link" />
+  <xacro:arg name="transmitter_height" default="0.3" />
+
+  <!-- The AprilTag serves as the root element of the Wibotic Station.
+       This design ensures that docking functionality can detect stations via AprilTags,
+       and maintains a single root in the TF tree for proper frame hierarchy.
+       You can change the root manipulating root_link, parent_link, xyz and rpy parameters -->
+    <xacro:macro name="wibotic_station"
+               params="parent_link
+                       xyz:='0.0 0.0 0.0'
+                       rpy:='0.0 0.0 0.0'
+                       component_name:=''
+                       transmitter_height:=0.3">
+
+    <xacro:if value="${component_name == ''}">
+      <xacro:property name="component_name" value="wibotic_station" />
+    </xacro:if>
+
+    <xacro:property name="component_name_underscore" value="${component_name + '_' if component_name != '' else ''}" />
+
+    <joint name="${parent_link}to_${component_name_underscore}wibotic_station_link_joint" type="fixed">
+      <origin xyz="${xyz}" rpy="${rpy}" />
+      <parent link="${parent_link}" />
+      <child link="${component_name_underscore}wibotic_station_link" />
+    </joint>
+
+    <link name="${component_name_underscore}wibotic_station_link">
+      <visual>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://husarion_components_description/meshes/wibotic_frame.dae" />
+        </geometry>
+      </visual>
+
+      <!-- Fake collision fit to dae -->
+      <collision>
+        <origin xyz="-0.2 0.0  0.45" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <box size="0.4 0.5 0.9" />
+        </geometry>
+      </collision>
+
+      <!-- Fake inertia -->
+      <inertial>
+        <origin xyz="-0.2 0.0  0.45" rpy="0.0 0.0 0.0" />
+        <mass value="15.0" />
+        <inertia ixx="0.001111" ixy="0.0"      ixz="0.0"
+                                iyy="0.001111" iyz="0.0"
+                                               izz="0.001111" />
+      </inertial>
+    </link>
+
+    <joint name="${component_name_underscore}wibotic_station_link_to_${component_name_underscore}wibotic_transmitter_joint" type="fixed">
+      <origin xyz="0.0 0.0 ${transmitter_height + 0.135}" rpy="0.0 0.0 0.0" /> <!-- 0.135 is offset from mesh origin to bottom of transmitter case -->
+      <parent link="${component_name_underscore}wibotic_station_link" />
+      <child link="${component_name_underscore}wibotic_transmitter_link" />
+    </joint>
+
+    <link name="${component_name_underscore}wibotic_transmitter_link">
+      <visual>
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+        <geometry>
+          <mesh filename="package://husarion_components_description/meshes/wibotic_transmitter.dae" />
+        </geometry>
+      </visual>
+    </link>
+
+    <!-- Additional link for as a destination for docking -->
+    <joint name="${component_name_underscore}wibotic_transmitter_link_to_${component_name_underscore}wibotic_dock_frame_joint" type="fixed">
+      <origin xyz="0.05 0.0 0.0" rpy="0.0 0.0 ${pi}" />
+      <parent link="${component_name_underscore}wibotic_transmitter_link" />
+      <child link="${component_name_underscore}wibotic_dock_frame" />
+    </joint>
+
+    <link name="${component_name_underscore}wibotic_dock_frame" />
+
+  </xacro:macro>
+
+  <xacro:macro name="apriltag"
+               params="parent_link
+                       xyz:='0.0 0.0 0.0'
+                       rpy:='0.0 0.0 0.0'
+                       component_name:=''
+                       size:=0.08">
+
+    <xacro:property name="component_name_underscore" value="${component_name + '_' if component_name != '' else ''}" />
+
+    <joint name="${parent_link}_to_${component_name_underscore}image_link_joint" type="fixed">
+      <origin xyz="${xyz}" rpy="${rpy}" />
+      <parent link="${parent_link}" />
+      <child link="${component_name_underscore}image_link" />
+    </joint>
+
+    <link name="${component_name_underscore}image_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 ${pi/2.0} 0" />
+        <geometry>
+          <box size="${size} ${size} 0.0001" />
+        </geometry>
+        <material name="Grey">
+          <color rgba="0.15 0.15 0.15 1.0" />
+        </material>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 ${pi/2.0} 0" />
+        <geometry>
+          <box size="${size} ${size} 0.0001" />
+        </geometry>
+      </collision>
+    </link>
+
+    <gazebo reference="${component_name_underscore}image_link">
+      <visual>
+        <material>
+          <diffuse>1.0 1.0 1.0 1</diffuse>
+          <specular>0.6 0.6 0.6 1</specular>
+          <ambient>1.0 1.0 1.0</ambient>
+          <lighting>true</lighting>
+          <emissive>0 0 0 1</emissive>
+          <pbr>
+            <metal>
+              <albedo_map>$(arg apriltag_image)</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </gazebo>
+
+  </xacro:macro>
+
+  <xacro:property name="component_name_prop" value="$(arg component_name)" />
+  <xacro:property name="apriltag_name" value="${component_name_prop + '_apriltag' if component_name_prop != '' else 'apriltag'}" />
+
+  <link name="$(arg root_link)" />
+
+  <!-- AprilTag as root -->
+  <xacro:apriltag parent_link="$(arg root_link)" xyz="0 0 0" rpy="0 -${pi/2.0} ${pi/2.0}" component_name="${apriltag_name}" size="$(arg apriltag_size)" />
+  <xacro:wibotic_station parent_link="$(arg root_link)" xyz="0 -$(arg apriltag_mount_height) 0" rpy="${pi} -${pi/2.0} ${pi/2.0}" component_name="$(arg component_name)" transmitter_height="$(arg transmitter_height)" />
+
+  <!-- Station as root -->
+  <!-- <xacro:wibotic_station parent_link="$(arg root_link)" component_name="$(arg component_name)" transmitter_height="$(arg transmitter_height)" />
+  <xacro:apriltag parent_link="$(arg root_link)" xyz="0 0 $(arg apriltag_mount_height)" rpy="${pi} 0 0" component_name="${apriltag_name}" size="$(arg apriltag_size)" /> -->
+
+</robot>

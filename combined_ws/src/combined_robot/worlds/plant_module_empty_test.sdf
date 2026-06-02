@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="plant_module_empty_test">
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system"/>
+    <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system"/>
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system"/>
+
+    <gui fullscreen="false">
+      <plugin name="3D View" filename="GzScene3D">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.7 0.7 0.7</ambient_light>
+        <background_color>0.88 0.90 0.92</background_color>
+        <camera_pose>2.0 -3.2 1.7 0 0.35 2.55</camera_pose>
+      </plugin>
+      <plugin name="World control" filename="WorldControl"/>
+      <plugin name="Entity tree" filename="EntityTree"/>
+    </gui>
+
+    <gravity>0 0 -9.8</gravity>
+    <scene>
+      <grid>true</grid>
+      <ambient>0.55 0.55 0.55 1</ambient>
+      <background>0.82 0.84 0.86 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <light name="sun" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.85 1</diffuse>
+      <specular>0.15 0.15 0.15 1</specular>
+      <direction>-0.4 0.3 -1</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>10 8</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>10 8</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.50 0.47 0.40 1</ambient>
+            <diffuse>0.50 0.47 0.40 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <include>
+      <uri>model://plant1_Paketi</uri>
+      <name>module_plant1</name>
+      <pose>-1.5 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant2_Paketi</uri>
+      <name>module_plant2</name>
+      <pose>-0.5 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant3_Paketi</uri>
+      <name>module_plant3</name>
+      <pose>0.5 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant4_Paketi</uri>
+      <name>module_plant4</name>
+      <pose>1.5 0 0 0 0 0</pose>
+    </include>
+  </world>
+</sdf>

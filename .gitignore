@@ -1,0 +1,31 @@
+# ROS / colcon generated outputs
+**/build/
+**/install/
+**/log/
+
+# Python generated files
+**/__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Gazebo / Ignition runtime cache and logs
+.gazebo/
+.ignition/
+.gz/
+**/.gz/
+**/ogre.log
+**/ogre2.log
+
+# Editor / OS noise
+.vscode/
+.idea/
+*~
+.DS_Store
+
+# Runtime maps and temporary debug outputs can be regenerated unless explicitly needed.
+*.bag
+*.db3
+*.mcap
+
+# Local graphify knowledge graph output
+graphify-out/

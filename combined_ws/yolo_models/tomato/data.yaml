@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 3
+names: ['fully_ripened', 'green', 'rotten']
+
+roboflow:
+  workspace: hakans-workspace-hmud9
+  project: warmlight
+  version: 2
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/hakans-workspace-hmud9/warmlight/dataset/2

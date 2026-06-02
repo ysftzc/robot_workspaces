@@ -1,0 +1,41 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    joint_position_example_controller:
+      type: franka_example_controllers/JointPositionExampleController
+    joint_velocity_example_controller:
+      type: franka_example_controllers/JointVelocityExampleController
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    joint_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    gripper_controller:
+      type: position_controllers/JointGroupPositionController
+
+joint_position_example_controller:
+  ros__parameters:
+    gazebo: true
+    robot_type: fr3
+    arm_id: fr3
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - fr3_joint1
+      - fr3_joint2
+      - fr3_joint3
+      - fr3_joint4
+      - fr3_joint5
+      - fr3_joint6
+      - fr3_joint7
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - fr3_finger_joint1

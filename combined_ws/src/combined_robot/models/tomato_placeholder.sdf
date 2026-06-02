@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<!-- Dynamic sphere (tomato placeholder) — radius 30mm, mass 150g.
+     High friction coefficients so the gripper fingers can hold it.
+     Spawn centre at z=0.677m (pedestal top 0.647 + radius 0.030). -->
+<sdf version="1.7">
+
+  <model name="tomato_placeholder">
+    <link name="link">
+
+      <inertial>
+        <mass>0.15</mass>
+        <!-- Solid sphere: I = 2/5 * m * r^2 = 2/5 * 0.15 * 0.03^2 = 5.4e-5 -->
+        <inertia>
+          <ixx>5.4e-5</ixx><iyy>5.4e-5</iyy><izz>5.4e-5</izz>
+          <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <collision name="col">
+        <geometry><sphere><radius>0.03</radius></sphere></geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>2.0</mu>      <!-- high static friction for reliable grip -->
+              <mu2>2.0</mu2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <kp>1e6</kp>
+              <kd>100</kd>
+            </ode>
+          </contact>
+        </surface>
+      </collision>
+
+      <visual name="vis">
+        <geometry><sphere><radius>0.03</radius></sphere></geometry>
+        <material>
+          <diffuse>0.95 0.1 0.1 1</diffuse>  <!-- tomato red -->
+          <specular>0.3 0.3 0.3 1</specular>
+        </material>
+      </visual>
+
+    </link>
+  </model>
+
+</sdf>

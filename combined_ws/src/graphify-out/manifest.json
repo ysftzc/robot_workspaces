@@ -1,0 +1,1070 @@
+{
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/setup.py": {
+    "mtime": 1777814745.18072,
+    "hash": "f47d3c3889e8509fdfb14bd577bfb941"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/combined.launch.py": {
+    "mtime": 1776918266.0,
+    "hash": "b3b9870c49dbd01b915865731b93f8f6"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/combined_gazebo.launch (Copy).py": {
+    "mtime": 1777747343.630315,
+    "hash": "bb835619ec1526f217caa25973112316"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/combined_gazebo_sera.launch.py": {
+    "mtime": 1777820477.048894,
+    "hash": "8e67ba836d44ea5ebc1ee4b13da5daa2"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/sera_mapping.launch.py": {
+    "mtime": 1777814762.464202,
+    "hash": "3f383f60734ff6542ae2b3ca11976356"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/mapping_gazebo.launch.py": {
+    "mtime": 1777747343.6223152,
+    "hash": "7c2fa19b3bb990ea08b943390d1d9dc8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/test_lidar.launch.py": {
+    "mtime": 1777747343.6223152,
+    "hash": "b8fd093754af8d54d68b6940e5847556"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/sera_nav2.launch.py": {
+    "mtime": 1777827231.2899034,
+    "hash": "88a9588e2f668dedeea3b97fb6b9b74f"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/launch/combined_gazebo.launch.py": {
+    "mtime": 1777747343.6213152,
+    "hash": "d7cc754163ff18304b1be5f00a3a18c8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/combined_robot/__init__.py": {
+    "mtime": 1776918268.0,
+    "hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/README_MAPPING_NAV2.md": {
+    "mtime": 1777827339.1219714,
+    "hash": "3ee9ad8a2182f5b270d50679b69c9ae1"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/sera_slam_params.yaml": {
+    "mtime": 1777814172.7656612,
+    "hash": "fa1a1b5c1465aa2fd299865d9b91e033"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/sera_nav2_params.yaml": {
+    "mtime": 1777827047.7636383,
+    "hash": "07f6a3cc99475274fe5f1e5c78b59591"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/components_no_lidar.yaml": {
+    "mtime": 1777656266.5308506,
+    "hash": "9b37c8212d65e01f287cd91df116b050"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/fr3_controllers.yaml": {
+    "mtime": 1776918268.0,
+    "hash": "c16236793c9084772d6f6660718a3dac"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/ekf_sim_config.yaml": {
+    "mtime": 1777318900.7729206,
+    "hash": "1e4c58374f007104221f38083a0aa927"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/config/combined_controllers.yaml": {
+    "mtime": 1777820477.1218956,
+    "hash": "f413864fe13db483355cee863428ecde"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/maps/keepout_mask.yaml": {
+    "mtime": 1777827037.5253477,
+    "hash": "fcc2996c24befd81723c1db4566daa41"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/maps/my_map.yaml": {
+    "mtime": 1777821001.7775092,
+    "hash": "148ea3d4f941331ca687250f0f99dfc0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.8984816,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.8989751,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.8980742,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.8980033,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.898647,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.898341,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.8981206,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.8981729,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.8980887,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_160729/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.8988073,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9818096,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.982266,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9813852,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.981316,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9819689,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.981667,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.981431,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9814858,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9814005,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_486650/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9821062,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9574387,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9578965,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9570556,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9569845,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9575891,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9572978,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9570997,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9571507,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.95707,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_435120/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.957734,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9656236,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9660785,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9652169,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9651384,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9657776,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9654717,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9652622,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9653192,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9652326,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_456071/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9659207,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9384322,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9388974,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9380658,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9379933,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9385808,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9383006,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9381084,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9381597,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9380798,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_36416/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.938743,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.098172,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.098683,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.0977676,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.0976896,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.0983336,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.0980284,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.0978136,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.0978699,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.097783,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945095/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.0984836,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9938846,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.994363,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9934926,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.993419,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9940376,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.993744,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9935412,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.993596,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9935074,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_553802/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9941792,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.1005702,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.1010303,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.100178,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.1001053,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.1007333,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.1004255,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.1002226,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.1002836,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.1001928,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_945644/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.1008728,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.0479233,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.048393,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.047514,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.0474393,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.0480957,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.0477734,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.04756,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.0476217,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.0475304,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_843705/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.0482352,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.0084975,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.0089676,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.0081098,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.0080326,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.008659,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.0083616,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.0081549,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.00821,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.008125,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_654031/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.008805,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.98969,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.990147,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9892988,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9892244,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9898393,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9895473,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9893446,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.989397,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9893146,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_517281/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9899778,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.931186,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9316452,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9307842,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9307168,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9313326,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.931053,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9308558,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.93091,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9308028,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_339781/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9314685,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.0342474,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.0347273,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.0338647,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.0337944,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.0344129,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.0341067,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.0339093,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.0339615,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.03388,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_813285/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.0345573,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9854994,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9859672,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9851134,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9850414,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9856575,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9853623,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9851606,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.985214,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.985128,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_501138/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9858046,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/WhiteMetal_metallicRoughnessTexture.png": {
+    "mtime": 1777676676.3837168,
+    "hash": "4d245cd8a86223c205741363a26128ec"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/WetConcrete_baseColorTexture.png": {
+    "mtime": 1777676675.826717,
+    "hash": "1f2e0e100e4d056dd4273615a333b89f"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/Glass_Rough_baseColorTexture.png": {
+    "mtime": 1777676679.9507163,
+    "hash": "85e53c933794a6643c362039f4c6de6b"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/WhiteMetal_baseColorTexture.png": {
+    "mtime": 1777676676.266717,
+    "hash": "71f6010b2847d2e95891ae50be40ba40"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/WetConcrete_normalTexture.png": {
+    "mtime": 1777676675.245717,
+    "hash": "78f9facd543b3d2fcedea916401fee5a"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/Glass_Rough_normalTexture.png": {
+    "mtime": 1777676678.2057166,
+    "hash": "25d02a6f8b2c265486e5030dc931665d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/Glass_Rough_metallicRoughnessTexture.png": {
+    "mtime": 1777676681.633716,
+    "hash": "badb3ec62693c2fb744e89f0e5a05b7d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/sera_greenhouse/meshes/textures/WetConcrete_metallicRoughnessTexture.png": {
+    "mtime": 1777676675.933717,
+    "hash": "422850d9157826aa4ec708d543a378d0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.1264567,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.1270235,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.1260734,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.1260014,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.1266665,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.126316,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.1261196,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.1261718,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.1260881,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_961686/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.1268382,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9072,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9076533,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.906793,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9067173,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9073536,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.907056,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9068425,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9068997,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.906811,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_225469/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9074922,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.0295496,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.0300813,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.0290992,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.0290132,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.0297318,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.0293896,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.0291486,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.0292103,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.0291145,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_778101/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.029899,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.948314,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9488094,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.94793,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9478562,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9484782,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9481785,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9479742,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9480288,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9479446,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_401999/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9486341,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.963692,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9641764,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9633086,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9632335,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9638522,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.963552,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9633536,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.963407,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9633229,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_454334/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9640036,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9531088,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9535737,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.952725,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.952652,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9532657,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9529681,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9527702,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.952822,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9527404,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_422498/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.9534116,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9234707,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9239304,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9230895,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9230182,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.923629,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9233294,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9231343,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9231865,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9231062,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_304278/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.923771,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9511323,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9515862,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.9507353,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9506586,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.951284,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.950989,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.9507804,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9508414,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9507504,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_410724/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.951425,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15frt3.png": {
+    "mtime": 1777201724.0390954,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15lef2.png": {
+    "mtime": 1777201724.04608,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15blo2.png": {
+    "mtime": 1777201724.0386708,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15blo1.png": {
+    "mtime": 1777201724.038567,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15frt4.png": {
+    "mtime": 1777201724.0457697,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15frt2.png": {
+    "mtime": 1777201724.038942,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15brn1.png": {
+    "mtime": 1777201724.038717,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15frt1.png": {
+    "mtime": 1777201724.03878,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15blo3.png": {
+    "mtime": 1777201724.0386863,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_822902/materials/textures/AG15lef1.png": {
+    "mtime": 1777201724.0459177,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15frt3.png": {
+    "mtime": 1777201723.9258854,
+    "hash": "3a7bf093aec588251c13a74fbe846bee"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15lef2.png": {
+    "mtime": 1777201723.9263563,
+    "hash": "326ec0df0925c02ba7fd555e2ee5becc"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15blo2.png": {
+    "mtime": 1777201723.925492,
+    "hash": "0cd2a81df6146904a78ee4178a9b370c"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15blo1.png": {
+    "mtime": 1777201723.9254196,
+    "hash": "77a21dc17ceafec3901c38318c7a61e0"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15frt4.png": {
+    "mtime": 1777201723.9260604,
+    "hash": "9aabd658e438060e1a458b837957aeb8"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15frt2.png": {
+    "mtime": 1777201723.9257483,
+    "hash": "dda2ebb75487feb2f769b8dd013d7ea5"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15brn1.png": {
+    "mtime": 1777201723.925542,
+    "hash": "7df1d047b5bd870f6523b51a435b7b62"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15frt1.png": {
+    "mtime": 1777201723.9255996,
+    "hash": "0318270863814f82d695055b1bc756e9"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15blo3.png": {
+    "mtime": 1777201723.9255083,
+    "hash": "6bd1689e17689755256bf53d27c8dc8d"
+  },
+  "/home/yusuf/robot_workspaces/combined_ws/src/combined_robot/models/tomato_309838/materials/textures/AG15lef1.png": {
+    "mtime": 1777201723.926201,
+    "hash": "0827688f7996681007c4e8c15058b061"
+  }
+}

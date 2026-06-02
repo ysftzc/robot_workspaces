@@ -1,0 +1,141 @@
+digraph ROS2TopicFlow {
+  graph [
+    rankdir=LR,
+    bgcolor="white",
+    pad="0.25",
+    nodesep="0.38",
+    ranksep="0.58",
+    splines=ortho,
+    dpi=220,
+    fontname="DejaVu Sans",
+    labelloc=t,
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT POINT-SIZE="28"><B>ROS2 Node Graph and Topic Flow</B></FONT></TD></TR>
+        <TR><TD><FONT POINT-SIZE="15" COLOR="#64748B">Main runtime communication paths used in survey and harvest mode</FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  node [
+    shape=box,
+    style="rounded,filled",
+    fontname="DejaVu Sans",
+    fontsize=15,
+    margin="0.12,0.08",
+    color="#334155",
+    fillcolor="#F8FAFC"
+  ];
+
+  edge [
+    fontname="DejaVu Sans",
+    fontsize=12,
+    color="#475569",
+    penwidth=1.7,
+    arrowsize=0.72
+  ];
+
+  subgraph cluster_sim {
+    label="Gazebo / Robot";
+    style="rounded,filled";
+    color="#BAE6FD";
+    fillcolor="#EFF8FF";
+    gazebo [label="Gazebo Harmonic\n/tomato_farm world", fillcolor="white"];
+    controllers [label="ros2_control\nDrive + FR3 + gripper", fillcolor="white"];
+    robot_state [label="robot_state_publisher\nURDF -> TF", fillcolor="white"];
+  }
+
+  subgraph cluster_bridge {
+    label="ROS2 Interface";
+    style="rounded,filled";
+    color="#BBF7D0";
+    fillcolor="#F0FDF4";
+    bridge [label="ros_gz_bridge", fillcolor="white"];
+    sensor_topics [label="/camera/color/image_raw\n/camera/depth/image\n/camera/depth/camera_info\n/scan, /imu/data_raw, /clock", fillcolor="#ECFDF5"];
+    joint_tf [label="/joint_states\n/tf, /tf_static", fillcolor="#ECFDF5"];
+  }
+
+  subgraph cluster_nav {
+    label="Navigation";
+    style="rounded,filled";
+    color="#FED7AA";
+    fillcolor="#FFF7ED";
+    ekf [label="robot_localization EKF", fillcolor="white"];
+    amcl [label="AMCL", fillcolor="white"];
+    nav2 [label="Nav2\nplanner + controller", fillcolor="white"];
+    initial_pose [label="initial_pose_publisher\n/initialpose", fillcolor="white"];
+    nav_topics [label="/amcl_pose\n/navigate_to_pose\n/cmd_vel", fillcolor="#FFFBEB"];
+  }
+
+  subgraph cluster_perception {
+    label="Perception and Tomato Map";
+    style="rounded,filled";
+    color="#FBCFE8";
+    fillcolor="#FDF2F8";
+    yolo [label="yolo_tomato_detector", fillcolor="white"];
+    yolo_topic [label="/yolo/tomato_detections_json", fillcolor="#FCE7F3"];
+    depth_mapper [label="tomato_depth_mapper", fillcolor="white"];
+    tomato_map [label="/tomato_map/list", fillcolor="#FCE7F3"];
+    bbox_viewer [label="yolo_bbox_viewer", fillcolor="white"];
+    map_panel [label="tomato_map_panel", fillcolor="white"];
+  }
+
+  subgraph cluster_harvest {
+    label="Mission, Planning, Harvest";
+    style="rounded,filled";
+    color="#DDD6FE";
+    fillcolor="#F5F3FF";
+    mission [label="mission_manager", fillcolor="white"];
+    mission_status [label="/mission_manager/status", fillcolor="#EDE9FE"];
+    pick_target [label="/mission_pick/tomato_center\n/mission_pick/tomato_radius", fillcolor="#EDE9FE"];
+    target_selection [label="/tomato_harvest/target_selection", fillcolor="#EDE9FE"];
+    collision [label="tomato_collision_scene_manager", fillcolor="white"];
+    planning_scene [label="/planning_scene\n/tomato_collision_scene/markers", fillcolor="#EDE9FE"];
+    moveit [label="MoveIt move_group\n/move_action", fillcolor="white"];
+    pick_place [label="greenhouse_nearest_pick_place", fillcolor="white"];
+    picked [label="/tomato_harvest/picked", fillcolor="#EDE9FE"];
+  }
+
+  gazebo -> bridge [label="Gz sensor topics", color="#0284C7", penwidth=2.1];
+  bridge -> sensor_topics [label="ROS sensor topics", color="#16A34A", penwidth=2.1];
+  controllers -> joint_tf [label="joint states", color="#16A34A"];
+  robot_state -> joint_tf [label="robot frames", color="#16A34A"];
+
+  sensor_topics -> yolo [label="RGB image", color="#DB2777", penwidth=2.0];
+  yolo -> yolo_topic [label="bbox JSON", color="#DB2777", penwidth=2.0];
+  yolo_topic -> depth_mapper [label="detections", color="#DB2777", penwidth=2.0];
+  sensor_topics -> depth_mapper [label="depth + CameraInfo", color="#DB2777", penwidth=2.0];
+  joint_tf -> depth_mapper [label="camera TF", color="#DB2777"];
+  depth_mapper -> tomato_map [label="3D records", color="#DB2777", penwidth=2.1];
+  yolo_topic -> bbox_viewer [label="labels", style=dashed, color="#BE185D"];
+  sensor_topics -> bbox_viewer [label="image", style=dashed, color="#BE185D"];
+  tomato_map -> map_panel [label="GUI table", style=dashed, color="#BE185D"];
+
+  sensor_topics -> ekf [label="IMU + odom inputs", color="#EA580C"];
+  joint_tf -> ekf [label="odom TF", color="#EA580C"];
+  initial_pose -> amcl [label="/initialpose", color="#EA580C"];
+  ekf -> amcl [label="odom", color="#EA580C"];
+  amcl -> nav_topics [label="/amcl_pose", color="#EA580C"];
+  nav_topics -> nav2 [label="pose + goals", color="#EA580C"];
+
+  mission -> nav_topics [label="NavigateToPose goals", color="#7C3AED", penwidth=2.0];
+  nav_topics -> mission [label="goal result", color="#7C3AED"];
+  mission -> mission_status [label="state + waypoint", color="#7C3AED"];
+  mission_status -> depth_mapper [label="current waypoint", style=dashed, color="#7C3AED"];
+  tomato_map -> mission [label="auto-select inventory", color="#7C3AED", penwidth=2.0];
+  mission -> pick_target [label="selected 3D target", color="#7C3AED", penwidth=2.0];
+  mission -> target_selection [label="active model", color="#7C3AED"];
+  tomato_map -> collision [label="tomato records", color="#7C3AED"];
+  target_selection -> collision [label="exclude active target", color="#7C3AED"];
+  picked -> collision [label="remove picked object", color="#7C3AED"];
+  collision -> planning_scene [label="MoveIt + RViz objects", color="#7C3AED"];
+
+  pick_target -> pick_place [label="target pose/radius", color="#334155", penwidth=2.0];
+  target_selection -> pick_place [label="Gazebo model name", color="#334155"];
+  pick_place -> moveit [label="OMPL + Pilz plans", color="#334155", penwidth=2.0];
+  moveit -> controllers [label="arm trajectory", color="#334155", penwidth=2.0];
+  pick_place -> controllers [label="gripper command", color="#334155"];
+  pick_place -> picked [label="completion event", color="#334155"];
+  pick_place -> gazebo [label="attach / detach", color="#334155", penwidth=2.0];
+  nav2 -> controllers [label="base velocity", color="#334155"];
+}

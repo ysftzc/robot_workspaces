@@ -1,0 +1,234 @@
+digraph SystemArchitecture {
+  graph [
+    rankdir=TB,
+    bgcolor="white",
+    pad="0.35",
+    nodesep="0.55",
+    ranksep="0.62",
+    splines=polyline,
+    compound=true,
+    dpi=220,
+    fontname="DejaVu Sans",
+    labelloc=t,
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT POINT-SIZE="28"><B>Overall System Architecture</B></FONT></TD></TR>
+        <TR><TD><FONT POINT-SIZE="16" COLOR="#475569">Five-layer ROS2/Gazebo greenhouse harvesting pipeline</FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  node [
+    shape=plain,
+    fontname="DejaVu Sans",
+    fontsize=15
+  ];
+
+  edge [
+    fontname="DejaVu Sans",
+    fontsize=13,
+    color="#64748B",
+    penwidth=1.6,
+    arrowsize=0.75
+  ];
+
+  sim_gazebo [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BAE6FD">
+      <TR><TD BGCOLOR="#0284C7"><FONT COLOR="white"><B>Gazebo Harmonic</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">greenhouse world<BR/>physics and contacts</TD></TR>
+    </TABLE>
+  >];
+  sim_robot [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BAE6FD">
+      <TR><TD BGCOLOR="#0284C7"><FONT COLOR="white"><B>Mobile Manipulator</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">Panther base<BR/>Franka FR3 arm</TD></TR>
+    </TABLE>
+  >];
+  sim_sensors [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BAE6FD">
+      <TR><TD BGCOLOR="#0284C7"><FONT COLOR="white"><B>Sensors</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">RGB-D camera<BR/>LiDAR and IMU</TD></TR>
+    </TABLE>
+  >];
+  sim_env [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BAE6FD">
+      <TR><TD BGCOLOR="#0284C7"><FONT COLOR="white"><B>Crop Environment</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">B/C tomato rows<BR/>good and bad baskets</TD></TR>
+    </TABLE>
+  >];
+
+  ros_bridge [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BBF7D0">
+      <TR><TD BGCOLOR="#16A34A"><FONT COLOR="white"><B>ros_gz_bridge</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">/clock, image, depth<BR/>scan, IMU topics</TD></TR>
+    </TABLE>
+  >];
+  ros_control [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BBF7D0">
+      <TR><TD BGCOLOR="#16A34A"><FONT COLOR="white"><B>ros2_control</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">drive controller<BR/>FR3 arm and gripper</TD></TR>
+    </TABLE>
+  >];
+  ros_tf [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#BBF7D0">
+      <TR><TD BGCOLOR="#16A34A"><FONT COLOR="white"><B>Robot State and TF2</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">URDF/Xacro frames<BR/>map, odom, base, camera</TD></TR>
+    </TABLE>
+  >];
+
+  nav_map [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FED7AA">
+      <TR><TD BGCOLOR="#EA580C"><FONT COLOR="white"><B>SLAM and Map</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">SLAM Toolbox map<BR/>keepout mask</TD></TR>
+    </TABLE>
+  >];
+  nav_local [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FED7AA">
+      <TR><TD BGCOLOR="#EA580C"><FONT COLOR="white"><B>Localization</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">AMCL particles<BR/>EKF odometry fusion</TD></TR>
+    </TABLE>
+  >];
+  nav_nav2 [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FED7AA">
+      <TR><TD BGCOLOR="#EA580C"><FONT COLOR="white"><B>Nav2</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">planner, controller<BR/>local/global costmaps</TD></TR>
+    </TABLE>
+  >];
+  nav_route [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FED7AA">
+      <TR><TD BGCOLOR="#EA580C"><FONT COLOR="white"><B>Route Waypoints</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">B/C plant scans<BR/>pick-front poses</TD></TR>
+    </TABLE>
+  >];
+
+  perc_yolo [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FBCFE8">
+      <TR><TD BGCOLOR="#DB2777"><FONT COLOR="white"><B>YOLO Detector</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">bbox, class label<BR/>confidence score</TD></TR>
+    </TABLE>
+  >];
+  perc_depth [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FBCFE8">
+      <TR><TD BGCOLOR="#DB2777"><FONT COLOR="white"><B>TomatoDepthMapper</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">RGB-D projection<BR/>3D tomato centers</TD></TR>
+    </TABLE>
+  >];
+  perc_map [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FBCFE8">
+      <TR><TD BGCOLOR="#DB2777"><FONT COLOR="white"><B>Tomato Map</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">/tomato_map/list<BR/>merged records</TD></TR>
+    </TABLE>
+  >];
+  perc_ui [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FBCFE8">
+      <TR><TD BGCOLOR="#DB2777"><FONT COLOR="white"><B>Visualization</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">bbox viewer<BR/>tomato map panel</TD></TR>
+    </TABLE>
+  >];
+
+  harv_mission [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#DDD6FE">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white"><B>MissionManager</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">survey/harvest state<BR/>route orchestration</TD></TR>
+    </TABLE>
+  >];
+  harv_scene [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#DDD6FE">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white"><B>Collision Scene</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">MoveIt objects<BR/>RViz tomato markers</TD></TR>
+    </TABLE>
+  >];
+  harv_target [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#DDD6FE">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white"><B>Target Selection</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">ripe vs. rotten routing<BR/>green rejection</TD></TR>
+    </TABLE>
+  >];
+  harv_motion [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#DDD6FE">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white"><B>Pick-Place Motion</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="white">MoveIt/OMPL approach<BR/>Pilz LIN final pick</TD></TR>
+    </TABLE>
+  >];
+
+  subgraph cluster_layer1 {
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0"><TR><TD><FONT POINT-SIZE="20"><B>Layer 1 - Simulation and Robot Platform</B></FONT></TD></TR></TABLE>
+    >;
+    color="#BAE6FD";
+    fillcolor="#EFF8FF";
+    style="rounded,filled";
+    penwidth=2.0;
+    { rank=same; sim_gazebo; sim_robot; sim_sensors; sim_env; }
+  }
+
+  subgraph cluster_layer2 {
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0"><TR><TD><FONT POINT-SIZE="20"><B>Layer 2 - ROS2 Interface and Robot State</B></FONT></TD></TR></TABLE>
+    >;
+    color="#BBF7D0";
+    fillcolor="#F0FDF4";
+    style="rounded,filled";
+    penwidth=2.0;
+    { rank=same; ros_bridge; ros_control; ros_tf; }
+  }
+
+  subgraph cluster_layer3 {
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0"><TR><TD><FONT POINT-SIZE="20"><B>Layer 3 - Navigation and Localization</B></FONT></TD></TR></TABLE>
+    >;
+    color="#FED7AA";
+    fillcolor="#FFF7ED";
+    style="rounded,filled";
+    penwidth=2.0;
+    { rank=same; nav_map; nav_local; nav_nav2; nav_route; }
+  }
+
+  subgraph cluster_layer4 {
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0"><TR><TD><FONT POINT-SIZE="20"><B>Layer 4 - Perception and Tomato Mapping</B></FONT></TD></TR></TABLE>
+    >;
+    color="#FBCFE8";
+    fillcolor="#FDF2F8";
+    style="rounded,filled";
+    penwidth=2.0;
+    { rank=same; perc_yolo; perc_depth; perc_map; perc_ui; }
+  }
+
+  subgraph cluster_layer5 {
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0"><TR><TD><FONT POINT-SIZE="20"><B>Layer 5 - Mission, Planning, and Harvesting</B></FONT></TD></TR></TABLE>
+    >;
+    color="#DDD6FE";
+    fillcolor="#F5F3FF";
+    style="rounded,filled";
+    penwidth=2.0;
+    { rank=same; harv_mission; harv_scene; harv_target; harv_motion; }
+  }
+
+  sim_gazebo -> ros_bridge [label="sensor and world topics", color="#0284C7", penwidth=2.4];
+  sim_robot -> ros_control [label="joint states and commands", color="#0284C7", penwidth=2.4];
+  sim_sensors -> ros_bridge [color="#0284C7", penwidth=2.0];
+
+  ros_bridge -> nav_local [label="scan, IMU, odom", color="#16A34A", penwidth=2.2];
+  ros_tf -> nav_local [color="#16A34A", penwidth=2.0];
+  nav_map -> nav_nav2 [label="map + keepout mask", color="#EA580C", penwidth=2.3];
+  nav_local -> nav_nav2 [label="localized pose", color="#EA580C", penwidth=2.3];
+  nav_route -> nav_nav2 [label="waypoint goals", color="#EA580C", penwidth=2.0];
+
+  ros_bridge -> perc_yolo [label="RGB image", color="#DB2777", penwidth=2.2];
+  ros_bridge -> perc_depth [label="depth + CameraInfo", color="#DB2777", penwidth=2.2];
+  ros_tf -> perc_depth [label="camera transform", color="#DB2777", penwidth=2.0];
+  perc_yolo -> perc_depth [label="bbox JSON", color="#DB2777", penwidth=2.0];
+  perc_depth -> perc_map [label="3D records", color="#DB2777", penwidth=2.4];
+  perc_map -> perc_ui [style=dashed, color="#DB2777", penwidth=1.7];
+
+  nav_nav2 -> harv_mission [label="waypoint progress", color="#7C3AED", penwidth=2.4];
+  perc_map -> harv_target [label="candidate tomatoes", color="#7C3AED", penwidth=2.4];
+  perc_map -> harv_scene [label="collision spheres", color="#7C3AED", penwidth=2.0];
+  harv_mission -> harv_target [label="pick trigger", color="#7C3AED", penwidth=2.0];
+  harv_target -> harv_motion [label="selected target", color="#7C3AED", penwidth=2.4];
+  harv_scene -> harv_motion [label="planning scene", color="#7C3AED", penwidth=2.0];
+  harv_motion -> ros_control [label="arm, gripper, base commands", color="#334155", penwidth=2.4];
+  harv_motion -> sim_gazebo [label="attach / detach / basket release", color="#334155", penwidth=2.0];
+}

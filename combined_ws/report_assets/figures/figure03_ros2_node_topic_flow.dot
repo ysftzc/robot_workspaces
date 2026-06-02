@@ -1,0 +1,101 @@
+digraph ROS2TopicFlowCompact {
+  graph [
+    rankdir=TB,
+    bgcolor="white",
+    pad="0.24",
+    nodesep="0.30",
+    ranksep="0.38",
+    splines=line,
+    dpi=220,
+    fontname="DejaVu Sans",
+    labelloc=t,
+    label=<
+      <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT POINT-SIZE="28"><B>ROS2 Node Graph / Topic Flow</B></FONT></TD></TR>
+        <TR><TD><FONT POINT-SIZE="15" COLOR="#64748B">Simplified backbone of the survey and harvest runtime graph</FONT></TD></TR>
+      </TABLE>
+    >
+  ];
+
+  node [
+    shape=plain,
+    fontname="DejaVu Sans",
+    fontsize=15
+  ];
+
+  edge [
+    fontname="DejaVu Sans",
+    fontsize=12,
+    color="#475569",
+    penwidth=2.0,
+    arrowsize=0.72
+  ];
+
+  sim [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#7DD3FC">
+      <TR><TD BGCOLOR="#0284C7"><FONT COLOR="white" POINT-SIZE="18"><B>Gazebo and Robot Layer</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="#EFF8FF">
+        <B>Nodes/modules:</B> Gazebo Harmonic, ros2_control, robot_state_publisher<BR ALIGN="LEFT"/>
+        <B>Published data:</B> RGB image, depth image, CameraInfo, scan, IMU, joint states, TF
+      </TD></TR>
+    </TABLE>
+  >];
+
+  bridge [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#86EFAC">
+      <TR><TD BGCOLOR="#16A34A"><FONT COLOR="white" POINT-SIZE="18"><B>ROS2 Interface Topics</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="#F0FDF4">
+        <B>Sensor topics:</B> /camera/color/image_raw, /camera/depth/image, /camera/depth/camera_info<BR ALIGN="LEFT"/>
+        <B>State topics:</B> /scan, /imu/data_raw, /joint_states, /tf, /tf_static, /clock
+      </TD></TR>
+    </TABLE>
+  >];
+
+  nav [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#FDBA74">
+      <TR><TD BGCOLOR="#EA580C"><FONT COLOR="white" POINT-SIZE="18"><B>Navigation and Mission Control</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="#FFF7ED">
+        <B>Nodes:</B> robot_localization EKF, AMCL, Nav2, initial_pose_publisher, mission_manager<BR ALIGN="LEFT"/>
+        <B>Topics/actions:</B> /initialpose, /amcl_pose, /navigate_to_pose, /cmd_vel, /mission_manager/status
+      </TD></TR>
+    </TABLE>
+  >];
+
+  perception [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#F9A8D4">
+      <TR><TD BGCOLOR="#DB2777"><FONT COLOR="white" POINT-SIZE="18"><B>Perception and Tomato Map</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="#FDF2F8">
+        <B>Nodes:</B> yolo_tomato_detector, tomato_depth_mapper, yolo_bbox_viewer, tomato_map_panel<BR ALIGN="LEFT"/>
+        <B>Topics:</B> /yolo/tomato_detections_json, /tomato_map/list
+      </TD></TR>
+    </TABLE>
+  >];
+
+  harvest [label=<
+    <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="9" COLOR="#C4B5FD">
+      <TR><TD BGCOLOR="#7C3AED"><FONT COLOR="white" POINT-SIZE="18"><B>Harvest Planning and Manipulation</B></FONT></TD></TR>
+      <TR><TD BGCOLOR="#F5F3FF">
+        <B>Nodes:</B> tomato_collision_scene_manager, MoveIt move_group, greenhouse_nearest_pick_place<BR ALIGN="LEFT"/>
+        <B>Topics/actions:</B> /mission_pick/tomato_center, /mission_pick/tomato_radius,<BR ALIGN="LEFT"/>
+        /tomato_harvest/target_selection, /planning_scene, /move_action, /tomato_harvest/picked
+      </TD></TR>
+    </TABLE>
+  >];
+
+  command [label=<
+    <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="7">
+      <TR><TD BGCOLOR="#F8FAFC"><FONT COLOR="#475569" POINT-SIZE="13">
+        Feedback path: Nav2 and pick-place nodes send base, arm, and gripper commands through ros2_control; picked events update the tomato map and collision scene.
+      </FONT></TD></TR>
+    </TABLE>
+  >];
+
+  sim -> bridge [label="ros_gz_bridge and robot state", color="#0284C7"];
+  bridge -> nav [label="scan, IMU, odom, TF", color="#EA580C"];
+  bridge -> perception [label="RGB-D + CameraInfo + TF", color="#DB2777"];
+  perception -> nav [label="/tomato_map/list and waypoint context", color="#7C3AED"];
+  nav -> harvest [label="selected target + mission trigger", color="#7C3AED"];
+  perception -> harvest [label="tomato records + collision objects", color="#7C3AED"];
+  harvest -> command [style=dashed, color="#64748B", arrowhead=none];
+  command -> sim [label="controllers and Gazebo attach/detach", color="#334155", constraint=false];
+}

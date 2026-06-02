@@ -1,0 +1,367 @@
+routes:
+  full_survey:
+    description: "Autonomous survey converted from Gazebo world coordinates for the B-C greenhouse route."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_end, x: -1.64, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_to_lower_entry, x: -1.64, y: -1.63, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_entry, x: -1.64, y: -3.30, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_up_lower, x: -1.64, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_end, x: 9.50, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_to_nearest_start, x: 9.05, y: -3.45, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: nearest_corridor_head, x: 9.05, y: -1.67, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: finish_facing_down, x: 9.05, y: -1.67, yaw: -3.141, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+
+  full_survey_then_harvest_scan:
+    description: "Run the full greenhouse survey, then scan B/C plant pairs 10, 8, 6, 4, 2, 0 from the center corridor; each 6-pose scan ends with a front pick observation pose."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_end, x: -1.64, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_to_lower_entry, x: -1.64, y: -1.63, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_entry, x: -1.64, y: -3.30, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_up_lower, x: -1.64, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_end, x: 9.50, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_to_nearest_start, x: 9.05, y: -3.45, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: nearest_corridor_head, x: 9.05, y: -1.67, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: finish_facing_down, x: 9.05, y: -1.67, yaw: -3.141, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: plant_10_home_start, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_10_b_scan_1, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_scan_3, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_10_b_scan_4, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_10_b_scan_5, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_10_b_scan_6, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_home_after_b, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_10_c_scan_1, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_10_c_scan_2, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_10_c_scan_3, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_10_c_scan_4, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_10_c_scan_5, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_10_c_scan_6, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_10_c_pick_front, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_10_home_after_c, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_home_start, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_b_scan_1, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_08_b_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_08_b_scan_3, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_08_b_scan_4, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_08_b_scan_5, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_08_b_scan_6, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_08_b_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_08_home_after_b, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_c_scan_1, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_08_c_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_08_c_scan_3, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_08_c_scan_4, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_08_c_scan_5, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_08_c_scan_6, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_08_c_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_08_home_after_c, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_06_home_start, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_06_b_scan_1, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_06_b_scan_2, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_06_b_scan_3, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_06_b_scan_4, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_06_b_scan_5, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_06_b_scan_6, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_06_b_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_06_home_after_b, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_06_c_scan_1, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_06_c_scan_2, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_06_c_scan_3, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_06_c_scan_4, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_06_c_scan_5, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_06_c_scan_6, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_06_c_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_06_home_after_c, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_04_home_start, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_04_b_scan_1, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_04_b_scan_2, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_04_b_scan_3, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_04_b_scan_4, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_04_b_scan_5, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_04_b_scan_6, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_04_b_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_04_home_after_b, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_04_c_scan_1, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_04_c_scan_2, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_04_c_scan_3, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_04_c_scan_4, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_04_c_scan_5, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_04_c_scan_6, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_04_c_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_04_home_after_c, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_02_home_start, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_02_b_scan_1, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_02_b_scan_2, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_02_b_scan_3, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_02_b_scan_4, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_02_b_scan_5, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_02_b_scan_6, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_02_b_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_02_home_after_b, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_02_c_scan_1, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_02_c_scan_2, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_02_c_scan_3, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_02_c_scan_4, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_02_c_scan_5, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_02_c_scan_6, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_02_c_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_02_home_after_c, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_00_home_start, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_00_b_scan_1, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_00_b_scan_2, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_00_b_scan_3, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_00_b_scan_4, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_00_b_scan_5, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_00_b_scan_6, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_00_b_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_00_home_after_b, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_00_c_scan_1, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_00_c_scan_2, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_00_c_scan_3, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_00_c_scan_4, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_00_c_scan_5, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_00_c_scan_6, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_00_c_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_00_home_after_c, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+
+  full_survey_then_pick_front_only:
+    description: "Demo route: run the full greenhouse survey, then visit each B/C plant pair using only the front pick pose. This skips the six scan poses per plant to keep the demo short."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_end, x: -1.64, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_to_lower_entry, x: -1.64, y: -1.63, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_entry, x: -1.64, y: -3.30, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_up_lower, x: -1.64, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_end, x: 9.50, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_to_nearest_start, x: 9.05, y: -3.45, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: nearest_corridor_head, x: 9.05, y: -1.67, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: finish_facing_down, x: 9.05, y: -1.67, yaw: -3.141, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_c_pick_front, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_08_b_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_08_c_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_06_b_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_06_c_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_04_b_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_04_c_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_02_b_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_02_c_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_00_b_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_00_c_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+
+  full_survey_look_then_pick_front:
+    description: "Demo route: run the full greenhouse survey, then use one wide look pose per plant before returning to pick_front for harvest."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_end, x: -1.64, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_to_lower_entry, x: -1.64, y: -1.63, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_entry, x: -1.64, y: -3.30, yaw: -1.561, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_up_lower, x: -1.64, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: lower_end, x: 9.50, y: -3.30, yaw: -0.001, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_to_nearest_start, x: 9.05, y: -3.45, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: nearest_corridor_head, x: 9.05, y: -1.67, yaw: 1.572, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: finish_facing_down, x: 9.05, y: -1.67, yaw: -3.141, state: RETURN_TO_NEAREST_START, view: harvest_start_forward, arm_pose: harvest_start_forward}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_c_scan_2, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_10_c_pick_front, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_08_b_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_08_b_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_08_c_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_08_c_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_06_b_scan_2, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_06_b_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_06_c_scan_2, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_06_c_pick_front, x: 4.22, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_04_b_scan_2, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_04_b_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_04_c_scan_2, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_04_c_pick_front, x: 2.67, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_02_b_scan_2, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_02_b_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_02_c_scan_2, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_02_c_pick_front, x: 1.07, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_00_b_scan_2, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_00_b_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_00_c_scan_2, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_00_c_pick_front, x: -0.53, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+
+  upper_b10_c10_b8_c8_two_each:
+    description: "Demo route: start in the upper corridor, enter the center corridor, then scan and harvest B10, C10, B8, and C8. Launch with harvest_pick_max_per_waypoint=2 for two tomatoes at each plant side."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141, state: SURVEY_CENTER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: plant_10_home_start, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_10_b_scan_1, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_scan_3, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_10_b_scan_4, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_10_b_scan_5, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_10_b_scan_6, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_home_after_b, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_10_c_scan_1, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_10_c_scan_2, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_10_c_scan_3, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_10_c_scan_4, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_10_c_scan_5, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_10_c_scan_6, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_10_c_pick_front, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_10_home_after_c, x: 7.57, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_home_start, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_b_scan_1, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_08_b_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_08_b_scan_3, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_08_b_scan_4, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_08_b_scan_5, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_08_b_scan_6, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_08_b_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_08_home_after_b, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_08_c_scan_1, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_08_c_scan_2, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_08_c_scan_3, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_08_c_scan_4, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_08_c_scan_5, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_08_c_scan_6, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_08_c_pick_front, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_08_home_after_c, x: 5.92, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+
+  harvest_plant10_b_scan_only:
+    description: "Start directly at the B10 harvest scan poses and then run the B10 front pick observation pose."
+    waypoints:
+      - {name: plant_10_b_scan_1, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_scan_3, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_10_b_scan_4, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_10_b_scan_5, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_10_b_scan_6, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+
+  harvest_plant10_b_pick_front_only:
+    description: "Debug route for B10 only: drive directly to B10 pick-front and then harvest."
+    waypoints:
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+
+  spawn_front_stationary_harvest:
+    description: "Demo route: do not drive; scan and harvest the plant already in front of the spawned robot."
+    waypoints:
+      - {name: spawn_front_scan_1, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: spawn_front_scan_2, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: spawn_front_scan_3, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: spawn_front_scan_4, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: spawn_front_scan_5, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: spawn_front_scan_6, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: spawn_front_pick_front, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+
+  spawn_front_pick_front_only:
+    description: "Demo route: do not drive or scan; immediately harvest the plant in front of the spawned robot."
+    waypoints:
+      - {name: plant_02_b_pick_front, x: 0.87, y: 0.01, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+
+  upper_lower_no_center_harvest:
+    description: "Demo route: harvest from the outer corridors only. Use the manually verified upper-lane pose for the B row, cross only at the far end, then harvest the C row from the lower corridor without driving down the center corridor."
+    waypoints:
+      - {name: plant_02_b_scan_2, x: 0.87, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_02_b_pick_front, x: 0.87, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_04_b_scan_2, x: 2.67, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_04_b_pick_front, x: 2.67, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_06_b_scan_2, x: 4.22, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_06_b_pick_front, x: 4.22, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_08_b_scan_2, x: 5.92, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_08_b_pick_front, x: 5.92, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: upper_far_end, x: 9.90, y: -0.19, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_to_lower_far_end, x: 9.90, y: -0.19, yaw: -1.611, state: SURVEY_LOWER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: lower_far_entry, x: 9.50, y: -3.30, yaw: -1.611, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_lower_back, x: 9.50, y: -3.30, yaw: 3.122, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: plant_10_c_scan_2, x: 7.57, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_10_c_pick_front, x: 7.57, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_08_c_scan_2, x: 5.92, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_08_c_pick_front, x: 5.92, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_06_c_scan_2, x: 4.22, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_06_c_pick_front, x: 4.22, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_04_c_scan_2, x: 2.67, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_04_c_pick_front, x: 2.67, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_02_c_scan_2, x: 1.07, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_02_c_pick_front, x: 1.07, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: plant_00_c_scan_2, x: -0.53, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_00_c_pick_front, x: -0.53, y: -3.30, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+      - {name: lower_near_end, x: -1.64, y: -3.30, yaw: 3.122, state: SURVEY_LOWER, view: lower_inside_45deg, arm_pose: lower_inside_45deg}
+      - {name: turn_to_upper_near_end, x: -1.64, y: -3.30, yaw: 1.572, state: SURVEY_UPPER, view: center_drive_safe, arm_pose: center_drive_safe}
+      - {name: upper_near_entry, x: -1.64, y: -0.19, yaw: 1.572, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: turn_upper_forward, x: -1.64, y: -0.19, yaw: 0.019, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+      - {name: plant_00_b_scan_2, x: -0.53, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_00_b_pick_front, x: -0.53, y: -0.19, yaw: 0.019, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+
+  harvest_plant10_bc_scan_only:
+    description: "Demo route for B10 and C10: scan B10, harvest at B10 pick-front, return home, scan C10, then harvest at C10 pick-front."
+    waypoints:
+      - {name: plant_10_b_scan_1, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_1, arm_pose: harvest_b_scan_1}
+      - {name: plant_10_b_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_2, arm_pose: harvest_b_scan_2}
+      - {name: plant_10_b_scan_3, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_3, arm_pose: harvest_b_scan_3}
+      - {name: plant_10_b_scan_4, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_4, arm_pose: harvest_b_scan_4}
+      - {name: plant_10_b_scan_5, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_5, arm_pose: harvest_b_scan_5}
+      - {name: plant_10_b_scan_6, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_scan_6, arm_pose: harvest_b_scan_6}
+      - {name: plant_10_b_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_b_pick_front, arm_pose: harvest_b_pick_front}
+      - {name: plant_10_home_after_b, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_home, arm_pose: harvest_home}
+      - {name: plant_10_c_scan_1, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_1, arm_pose: harvest_c_scan_1}
+      - {name: plant_10_c_scan_2, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_2, arm_pose: harvest_c_scan_2}
+      - {name: plant_10_c_scan_3, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_3, arm_pose: harvest_c_scan_3}
+      - {name: plant_10_c_scan_4, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_4, arm_pose: harvest_c_scan_4}
+      - {name: plant_10_c_scan_5, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_5, arm_pose: harvest_c_scan_5}
+      - {name: plant_10_c_scan_6, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_scan_6, arm_pose: harvest_c_scan_6}
+      - {name: plant_10_c_pick_front, x: 7.17, y: -1.72, yaw: 3.122, state: HARVESTING, view: harvest_c_pick_front, arm_pose: harvest_c_pick_front}
+  upper_corridor_end_test:
+    description: "Start from the saved upper corridor entry pose and drive only to the upper corridor end."
+    waypoints:
+      - {name: upper_end, x: 12.31, y: 0.95, yaw: 0.015, state: SURVEY_UPPER, view: upper_inside_45deg, arm_pose: upper_inside_45deg}
+
+  center_corridor_patrol:
+    description: "Manual B-C greenhouse route converted from Gazebo world coordinates."
+    waypoints:
+      - {name: upper_end, x: 9.90, y: 0.08, yaw: 0.019}
+      - {name: turn_to_center_entry, x: 9.90, y: 0.08, yaw: -1.611}
+      - {name: center_entry, x: 9.90, y: -1.63, yaw: -1.611}
+      - {name: turn_down_center, x: 9.90, y: -1.63, yaw: -3.141}
+      - {name: center_end, x: -1.64, y: -1.63, yaw: -3.141}
+      - {name: turn_to_lower_entry, x: -1.64, y: -1.63, yaw: -1.561}
+      - {name: lower_entry, x: -1.64, y: -3.30, yaw: -1.561}
+      - {name: turn_up_lower, x: -1.64, y: -3.30, yaw: -0.001}
+      - {name: lower_end, x: 9.50, y: -3.30, yaw: -0.001}
+      - {name: turn_to_nearest_start, x: 9.05, y: -3.45, yaw: 1.572}
+      - {name: nearest_corridor_head, x: 9.05, y: -1.67, yaw: 1.572}
+      - {name: finish_facing_down, x: 9.05, y: -1.67, yaw: -3.141}
+
+  upper_corridor_patrol:
+    description: "Patrol the upper greenhouse corridor."
+    waypoints:
+      - {name: upper_1, x: 3.0, y: 1.6, yaw: 0.0}
+      - {name: upper_2, x: 6.0, y: 1.6, yaw: 0.0}
+      - {name: upper_3, x: 9.0, y: 1.6, yaw: 0.0}
+      - {name: upper_end, x: 11.0, y: 1.6, yaw: 0.0}
+
+  lower_corridor_patrol:
+    description: "Patrol the lower greenhouse corridor."
+    waypoints:
+      - {name: lower_1, x: 3.0, y: -1.6, yaw: 0.0}
+      - {name: lower_2, x: 6.0, y: -1.6, yaw: 0.0}
+      - {name: lower_3, x: 9.0, y: -1.6, yaw: 0.0}
+      - {name: lower_end, x: 11.0, y: -1.6, yaw: 0.0}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <!--
+    Custom downward-facing RealSense D435 for Panther+FR3.
+    Replaces the upstream realsense_d435.xacro to avoid:
+      - Wrong camera orientation (original looks sideways)
+      - Duplicate sensor topic conflict that causes topic dropout
+    Camera looks along TCP +Z (= downward when arm is over basket).
+    Update rate reduced to 10 fps to keep Gazebo from overloading with
+    high-detail greenhouse tomato meshes.
+  -->
+  <xacro:macro name="panther_camera" params="parent_link prefix:=''">
+
+    <link name="${prefix}camera_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="${pi/2} 0 ${pi/2}"/>
+        <geometry>
+          <mesh filename="package://realsense2_description/meshes/d435.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry><box size="0.025 0.090 0.025"/></geometry>
+      </collision>
+      <inertial>
+        <mass value="0.072"/>
+        <inertia ixx="3.881e-3" ixy="0" ixz="0"
+                 iyy="4.989e-4" iyz="0"
+                 izz="3.879e-3"/>
+      </inertial>
+    </link>
+
+    <joint name="${prefix}camera_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${prefix}camera_link"/>
+      <!--
+        xyz="0.10 0 0.08":
+          +0.10m in TCP X = 10cm outward to the side (clears the ~8cm wrist body)
+          +0.08m in TCP Z = 8cm toward wrist (TCP +Z points toward wrist, not fingertips)
+        rpy="0 0 0": camera looks along TCP forward axis (link7 direction).
+        If camera appears on the wrong side, flip X to -0.10 or swap to Y axis.
+      -->
+      <origin xyz="0.04 0 0.06" rpy="${pi} ${-pi/2} 0"/>
+    </joint>
+
+    <!-- ROS optical frames (standard REP-103 convention) -->
+    <link name="${prefix}camera_color_optical_frame"/>
+    <joint name="${prefix}camera_color_optical_joint" type="fixed">
+      <parent link="${prefix}camera_link"/>
+      <child link="${prefix}camera_color_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    </joint>
+
+    <link name="${prefix}camera_depth_optical_frame"/>
+    <joint name="${prefix}camera_depth_optical_joint" type="fixed">
+      <parent link="${prefix}camera_link"/>
+      <child link="${prefix}camera_depth_optical_frame"/>
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}"/>
+    </joint>
+
+    <!-- Gazebo sensors: one color + one depth stream. -->
+    <gazebo reference="${prefix}camera_link">
+      <sensor name="${prefix}d435_color" type="camera">
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <visualize>false</visualize>
+        <topic>/camera/color/image_raw</topic>
+        <camera name="${prefix}d435_color_cam">
+          <horizontal_fov>1.211</horizontal_fov>
+          <image>
+            <width>424</width>
+            <height>240</height>
+            <format>RGB_INT8</format>
+          </image>
+          <clip><near>0.05</near><far>10</far></clip>
+        </camera>
+      </sensor>
+
+      <sensor name="${prefix}d435_depth" type="depth_camera">
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <visualize>false</visualize>
+        <topic>/camera/depth/image</topic>
+        <camera name="${prefix}d435_depth_cam">
+          <horizontal_fov>1.211</horizontal_fov>
+          <image>
+            <width>424</width>
+            <height>240</height>
+          </image>
+          <clip><near>0.05</near><far>10</far></clip>
+        </camera>
+      </sensor>
+    </gazebo>
+
+  </xacro:macro>
+</robot>

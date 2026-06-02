@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<!--
+Copyright 2025 Husarion. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:macro name="rack"
+               params="parent_link
+                       xyz:='0.0 0.0 0.0'
+                       rpy:='0.0 0.0 0.0'
+                       robot_namespace:=''
+                       component_name:=''
+                       elements">
+
+    <xacro:if value="${component_name == ''}">
+      <xacro:property name="component_name" value="rack" />
+    </xacro:if>
+
+    <xacro:property name="robot_namespace_slash" value="${robot_namespace + '/' if robot_namespace != '' else ''}" />
+    <xacro:property name="component_name_underscore" value="${component_name + '_' if component_name != '' else ''}" />
+
+    <joint name="${parent_link.rstrip('_link')}_to_${component_name_underscore}joint" type="fixed">
+      <origin xyz="${xyz}" rpy="${rpy}" />
+      <parent link="${parent_link}" />
+      <child link="${component_name_underscore}mount_link" />
+    </joint>
+
+    <link name="${component_name_underscore}mount_link">
+      <xacro:load_element elements="${elements}" counter="${len(elements)}" />
+    </link>
+
+  </xacro:macro>
+
+  <xacro:macro name="load_element" params="elements counter">
+    <xacro:if value="${counter}">
+      <xacro:property name="index" value="${counter - 1}" scope="parent" />
+      <xacro:property name="component" value="${elements[index]}" scope="parent" />
+
+      <visual>
+        <origin xyz="${component['xyz']}" rpy="${component['rpy']}" />
+        <geometry>
+          <mesh filename="package://husarion_components_description/meshes/v_slot_profile.dae" scale="${component['length']} 1.0 1.0"/>
+        </geometry>
+      </visual>
+
+      <collision>
+         <origin xyz="${component['xyz']}" rpy="${component['rpy']}" />
+        <geometry>
+          <box size="${component['length']} 0.0202 0.0202" />
+        </geometry>
+      </collision>
+
+      <xacro:if value="${index}">
+        <xacro:load_element elements="${elements}" counter="${index}" />
+      </xacro:if>
+    </xacro:if>
+  </xacro:macro>
+</robot>

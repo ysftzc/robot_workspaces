@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="tomato_lite_ripe">
+    <static>false</static>
+    <link name="link">
+      <inertial>
+        <mass>0.08</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <iyy>0.00001</iyy>
+          <izz>0.00001</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://tomato_lite_ripe/meshes/tomato_lite_ripe.glb</uri>
+            <scale>0.035 0.035 0.035</scale>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="collision">
+        <geometry>
+          <sphere><radius>0.035</radius></sphere>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

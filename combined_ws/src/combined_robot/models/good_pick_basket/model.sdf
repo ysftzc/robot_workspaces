@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="good_pick_basket">
+    <static>true</static>
+    <link name="link">
+      <collision name="floor_collision">
+        <pose>0 0 0.22 0 0 0</pose>
+        <geometry><box><size>0.52 0.44 0.04</size></box></geometry>
+        <surface>
+          <friction>
+            <ode><mu>100</mu><mu2>100</mu2><slip1>0</slip1><slip2>0</slip2></ode>
+          </friction>
+          <contact><ode><kp>1000000</kp><kd>100</kd><max_vel>0.0</max_vel><min_depth>0.002</min_depth></ode></contact>
+          <bounce><restitution_coefficient>0.0</restitution_coefficient><threshold>1000000.0</threshold></bounce>
+        </surface>
+      </collision>
+      <collision name="front_collision">
+        <pose>0.26 0 0.45 0 0 0</pose>
+        <geometry><box><size>0.06 0.50 0.50</size></box></geometry>
+        <surface>
+          <friction>
+            <ode><mu>100</mu><mu2>100</mu2><slip1>0</slip1><slip2>0</slip2></ode>
+          </friction>
+          <contact><ode><kp>1000000</kp><kd>100</kd><max_vel>0.0</max_vel><min_depth>0.002</min_depth></ode></contact>
+          <bounce><restitution_coefficient>0.0</restitution_coefficient><threshold>1000000.0</threshold></bounce>
+        </surface>
+      </collision>
+      <collision name="back_collision">
+        <pose>-0.26 0 0.45 0 0 0</pose>
+        <geometry><box><size>0.06 0.50 0.50</size></box></geometry>
+        <surface>
+          <friction>
+            <ode><mu>100</mu><mu2>100</mu2><slip1>0</slip1><slip2>0</slip2></ode>
+          </friction>
+          <contact><ode><kp>1000000</kp><kd>100</kd><max_vel>0.0</max_vel><min_depth>0.002</min_depth></ode></contact>
+          <bounce><restitution_coefficient>0.0</restitution_coefficient><threshold>1000000.0</threshold></bounce>
+        </surface>
+      </collision>
+      <collision name="left_collision">
+        <pose>0 0.22 0.45 0 0 0</pose>
+        <geometry><box><size>0.52 0.06 0.50</size></box></geometry>
+        <surface>
+          <friction>
+            <ode><mu>100</mu><mu2>100</mu2><slip1>0</slip1><slip2>0</slip2></ode>
+          </friction>
+          <contact><ode><kp>1000000</kp><kd>100</kd><max_vel>0.0</max_vel><min_depth>0.002</min_depth></ode></contact>
+          <bounce><restitution_coefficient>0.0</restitution_coefficient><threshold>1000000.0</threshold></bounce>
+        </surface>
+      </collision>
+      <collision name="right_collision">
+        <pose>0 -0.22 0.45 0 0 0</pose>
+        <geometry><box><size>0.52 0.06 0.50</size></box></geometry>
+        <surface>
+          <friction>
+            <ode><mu>100</mu><mu2>100</mu2><slip1>0</slip1><slip2>0</slip2></ode>
+          </friction>
+          <contact><ode><kp>1000000</kp><kd>100</kd><max_vel>0.0</max_vel><min_depth>0.002</min_depth></ode></contact>
+          <bounce><restitution_coefficient>0.0</restitution_coefficient><threshold>1000000.0</threshold></bounce>
+        </surface>
+      </collision>
+      <visual name="floor_visual">
+        <pose>0 0 0.22 0 0 0</pose>
+        <geometry><box><size>0.46 0.38 0.02</size></box></geometry>
+        <material><ambient>0.20 0.45 0.24 0.75</ambient><diffuse>0.20 0.45 0.24 0.75</diffuse></material>
+      </visual>
+      <visual name="front_visual">
+        <pose>0.23 0 0.40 0 0 0</pose>
+        <geometry><box><size>0.03 0.42 0.36</size></box></geometry>
+        <material><ambient>0.20 0.45 0.24 0.75</ambient><diffuse>0.20 0.45 0.24 0.75</diffuse></material>
+      </visual>
+      <visual name="back_visual">
+        <pose>-0.23 0 0.40 0 0 0</pose>
+        <geometry><box><size>0.03 0.42 0.36</size></box></geometry>
+        <material><ambient>0.20 0.45 0.24 0.75</ambient><diffuse>0.20 0.45 0.24 0.75</diffuse></material>
+      </visual>
+      <visual name="left_visual">
+        <pose>0 0.19 0.40 0 0 0</pose>
+        <geometry><box><size>0.46 0.03 0.36</size></box></geometry>
+        <material><ambient>0.20 0.45 0.24 0.75</ambient><diffuse>0.20 0.45 0.24 0.75</diffuse></material>
+      </visual>
+      <visual name="right_visual">
+        <pose>0 -0.19 0.40 0 0 0</pose>
+        <geometry><box><size>0.46 0.03 0.36</size></box></geometry>
+        <material><ambient>0.20 0.45 0.24 0.75</ambient><diffuse>0.20 0.45 0.24 0.75</diffuse></material>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -1,0 +1,91 @@
+x-common-config:
+  &common-config
+  env_file: .env
+
+services:
+  gazebo:
+    image: husarion/husarion-ugv-gazebo:jazzy-add-parameter-to-disable-orientation
+    container_name: gazebo
+    <<: *common-config
+    runtime: nvidia
+    environment:
+      - DISPLAY
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility,display
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ./config:/config
+    healthcheck:
+      test: >
+        bash -c "/ros_entrypoint.sh ros2 topic echo --timeout 0.2  --field header.frame_id /${ROBOT_NAMESPACE:-panther}/odometry/filtered | grep -q odom"
+      interval: 4s
+      timeout: 3s
+      retries: 4
+    command: >
+      ros2 launch husarion_ugv_gazebo simulation.launch.py
+        components_config_path:=/config/components.yaml
+        rviz_config:=/config/nav_config.rviz
+        namespace:=${ROBOT_NAMESPACE:-panther}
+        robot_model:=${ROBOT_MODEL:-panther}
+
+  docking:
+    # image: husarion/husarion-ugv-autonomy:jazzy-jazzy-devel
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: docking
+    <<: *common-config
+    volumes:
+      - ./config:/config
+      - ../husarion_ugv_docking:/ros2_ws/src/husarion_ugv_autonomy_ros/husarion_ugv_docking
+    depends_on:
+      gazebo:
+        condition: service_healthy
+        restart: true
+    healthcheck:
+      test: >
+        bash -c "/ros_entrypoint.sh ros2 topic echo --timeout 0.2  --field id /${ROBOT_NAMESPACE:-panther}/bond | grep -q docking_server"
+      interval: 4s
+      timeout: 3s
+      retries: 4
+    command: >
+      ros2 launch husarion_ugv_docking docking.launch.py
+        namespace:=${ROBOT_NAMESPACE:-panther}
+        use_wibotic_info:=False
+        camera_image_topic:=${CAMERA_IMAGE_TOPIC:-/panther/camera/color/image_raw}
+        camera_info_topic:=${CAMERA_INFO_TOPIC:-/panther/camera/color/camera_info}
+        apriltag_output_dir:=/config/apriltags
+        apriltag_size:=0.08
+        use_sim:=True
+
+  navigation:
+    # image: husarion/husarion-ugv-autonomy:jazzy-jazzy-devel
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: navigation
+    <<: *common-config
+    volumes:
+      - ./config:/config
+      - ../maps:/maps
+      - ../husarion_ugv_navigation:/ros2_ws/src/husarion_ugv_autonomy_ros/husarion_ugv_navigation
+    depends_on:
+      docking:
+        condition: service_healthy
+        restart: true
+    healthcheck:
+      test: >
+        bash -c "/ros_entrypoint.sh ros2 topic echo --timeout 0.2  --field id /${ROBOT_NAMESPACE:-panther}/bond | grep -q velocity_smoother"
+      interval: 4s
+      timeout: 3s
+      retries: 4
+    command: >
+      ros2 launch husarion_ugv_navigation bringup_launch.py
+        namespace:=${ROBOT_NAMESPACE:-panther}
+        observation_topic:=/${ROBOT_NAMESPACE:-panther}/velodyne_points
+        observation_topic_type:=pointcloud
+        slam:=${SLAM:-True}
+        use_sim_time:=True
+        robot_model:=${ROBOT_MODEL:-panther}

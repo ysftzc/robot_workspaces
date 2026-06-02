@@ -1,0 +1,159 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Goal Pose1
+    Name: Tool Properties
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz_default_plugins/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.7
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map_updates
+      Use Timestamp: false
+      Value: true
+    - Class: rviz_default_plugins/LaserScan
+      Color: 255; 0; 0
+      Decay Time: 0
+      Enabled: true
+      Name: Lidar Scan
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.03
+      Style: Points
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /lidar/scan
+      Use Fixed Frame: true
+      Value: true
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: Robot Model
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+      Marker Scale: 0.25
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Update Interval: 0
+      Value: true
+    - Angle Tolerance: 0.1
+      Class: rviz_default_plugins/Odometry
+      Enabled: true
+      Keep: 100
+      Name: Wheel Odom
+      Position Tolerance: 0.1
+      Shape:
+        Alpha: 1
+        Axes Length: 0.6
+        Axes Radius: 0.05
+        Color: 255; 25; 0
+        Head Length: 0.3
+        Head Radius: 0.1
+        Shaft Length: 0.7
+        Shaft Radius: 0.05
+        Value: Arrow
+      Topic:
+        Depth: 10
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /odometry/wheels
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /goal_pose
+  Transformation:
+    Current:
+      Class: rviz_default_plugins/TF
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 28
+      Focal Point:
+        X: 37.5
+        Y: 2.4
+        Z: 0
+      Name: Current View
+      Pitch: 1.5707
+      Target Frame: <Fixed Frame>
+      Yaw: 1.5708
+    Saved: ~
+Window Geometry:
+  Height: 900
+  Width: 1400

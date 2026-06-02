@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sdf version="1.9">
+  <world name="pick_place_detachable_test">
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system"/>
+    <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system"/>
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system"/>
+    <plugin name="gz::sim::systems::Contact" filename="gz-sim-contact-system"/>
+
+    <gui fullscreen="false">
+      <plugin name="3D View" filename="GzScene3D">
+        <gz-gui>
+          <title>Pick Place Test</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.55 0.55 0.55</ambient_light>
+        <background_color>0.85 0.88 0.92</background_color>
+        <camera_pose>2.0 -2.4 1.7 0 0.45 2.35</camera_pose>
+      </plugin>
+      <plugin name="World control" filename="WorldControl"/>
+      <plugin name="Entity tree" filename="EntityTree"/>
+    </gui>
+
+    <gravity>0 0 -9.81</gravity>
+    <scene>
+      <grid>true</grid>
+      <ambient>0.55 0.55 0.55 1</ambient>
+      <background>0.82 0.86 0.9 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <light name="sun" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.82 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.6 0.25 -1</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>6 6</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>6 6</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.48 0.46 0.40 1</ambient>
+            <diffuse>0.48 0.46 0.40 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="Modul_plant0">
+      <pose>0.678 0 -0.526 0 0 0</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.796845 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>0.8 0.8 0.8</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="yapraklar">
+        <pose>0 0 0.796845 0 0 0</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>0.8 0.8 0.8</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="tomato_attachment_branch">
+          <pose>-0.05 0 0.406 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.12 0.014 0.014</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.14 0.38 0.12 1</ambient>
+            <diffuse>0.14 0.38 0.12 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+      </joint>
+
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_pick_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_pick_0</detach_topic>
+        <attach_topic>/attach/tomato_ripe_pick_0</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_pick_0</output_topic>
+      </plugin>
+    </model>
+
+    <model name="tomato_ripe_pick_0">
+      <pose>0.58 0 0.677 0 0 0</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.05</mass>
+          <inertia>
+            <ixx>0.000025</ixx>
+            <iyy>0.000025</iyy>
+            <izz>0.000025</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <velocity_decay>
+          <linear>0.8</linear>
+          <angular>0.8</angular>
+        </velocity_decay>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.035</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10.0</mu>
+                <mu2>10.0</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>100</kd>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+        <visual name="tomato_mesh">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.75 1.75 1.75</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <visual name="tomato_collision_hint">
+          <geometry>
+            <sphere>
+              <radius>0.035</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.8 0.04 0.03 0.35</ambient>
+            <diffuse>0.8 0.04 0.03 0.35</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="good_pick_basket">
+      <static>true</static>
+      <pose>-0.55 0.0 0.0 0 0 0</pose>
+      <link name="link">
+        <collision name="floor_collision">
+          <pose>0 0 0.22 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.22 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="front_collision">
+          <pose>0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back_collision">
+          <pose>-0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_collision">
+          <pose>0 0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right_collision">
+          <pose>0 -0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="floor_visual">
+          <pose>0 0 0.22 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.22 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.45 0.24 0.75</ambient>
+            <diffuse>0.20 0.45 0.24 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="front_visual">
+          <pose>0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.45 0.24 0.75</ambient>
+            <diffuse>0.20 0.45 0.24 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="back_visual">
+          <pose>-0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.45 0.24 0.75</ambient>
+            <diffuse>0.20 0.45 0.24 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="left_visual">
+          <pose>0 0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.45 0.24 0.75</ambient>
+            <diffuse>0.20 0.45 0.24 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="right_visual">
+          <pose>0 -0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.20 0.45 0.24 0.75</ambient>
+            <diffuse>0.20 0.45 0.24 0.75</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="bad_pick_basket">
+      <static>true</static>
+      <pose>-0.90 0.0 0.0 0 0 0</pose>
+      <link name="link">
+        <collision name="floor_collision">
+          <pose>0 0 0.22 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.22 0.02</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="front_collision">
+          <pose>0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="back_collision">
+          <pose>-0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="left_collision">
+          <pose>0 0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <collision name="right_collision">
+          <pose>0 -0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="floor_visual">
+          <pose>0 0 0.22 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.22 0.02</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.28 0.18 0.75</ambient>
+            <diffuse>0.50 0.28 0.18 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="front_visual">
+          <pose>0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.28 0.18 0.75</ambient>
+            <diffuse>0.50 0.28 0.18 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="back_visual">
+          <pose>-0.15 0 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.02 0.24 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.28 0.18 0.75</ambient>
+            <diffuse>0.50 0.28 0.18 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="left_visual">
+          <pose>0 0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.28 0.18 0.75</ambient>
+            <diffuse>0.50 0.28 0.18 0.75</diffuse>
+          </material>
+        </visual>
+        <visual name="right_visual">
+          <pose>0 -0.11 0.31 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.30 0.02 0.16</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.50 0.28 0.18 0.75</ambient>
+            <diffuse>0.50 0.28 0.18 0.75</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>pointcloud_crop_box</name>
+  <version>0.1.0</version>
+  <description>3D box filter for PointCloud2</description>
+  <maintainer email="support@husarion.com">Husarion</maintainer>
+  <license>Apache License 2.0</license>
+
+  <url type="website">https://husarion.com</url>
+  <url type="repository">https://github.com/husarion/husarion_ugv_ros</url>
+  <url type="bugtracker">https://github.com/husarion/husarion_ugv_ros/issues</url>
+
+  <author email="jakub.delicat@husarion.com">Jakub Delicat</author>
+  <author email="dawid.kmak@husarion.com">Dawid Kmak</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>generate_parameter_library</depend>
+  <depend>laser_geometry</depend>
+  <depend>pcl_conversions</depend>
+  <depend>pcl_ros</depend>
+  <depend>rclcpp</depend>
+  <depend>rclcpp_components</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>tf2_sensor_msgs</depend>
+  <depend>visualization_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

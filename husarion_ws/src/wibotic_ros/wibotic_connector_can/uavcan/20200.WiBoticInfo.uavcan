@@ -1,0 +1,17 @@
+#
+# WiBotic periodic information.
+#
+
+#
+# Primary parameters.
+# Some fields can be set to NAN if their values are unknown.
+#
+float16 VMonBatt
+float16 IBattery
+float16 VRect
+float16 VMonCharger
+float16 TBoard
+float16 TargetIBatt
+float16 ICharger
+float16 ISingleCharger2
+float16 ISingleCharger3

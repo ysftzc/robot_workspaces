@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!-- Copyright (c) 2026 Franka Robotics GmbH
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+         http://www.apache.org/licenses/LICENSE-2.0 -->
+
+<!--
+  Gazebo entry point for the Mobile FR3 Duo v0.2 with sensors.
+
+  This file orchestrates the Gazebo simulation:
+    - Instantiates Layer 2 macro (robot + sensor suite)
+    - Applies Gazebo-specific sensor plugins (camera, IMU, LiDAR)
+
+  Each layer only knows about the layer directly below it:
+    Layer 3 (this file) → Layer 2 macro → Layer 1 macro
+-->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="mobile_fr3_duo_v0_2_gazebo_with_sensors">
+
+  <!-- ================================================================ -->
+  <!-- Macro includes                                                    -->
+  <!-- ================================================================ -->
+  <xacro:include filename="$(find franka_mobile_sensors)/robots/mobile_fr3_duo_v0_2_with_sensors.xacro"/>
+  <xacro:include filename="$(find franka_gazebo_bringup)/urdf/sensors.xacro" />
+  <xacro:include filename="$(find franka_gazebo_bringup)/urdf/gravity_overrides.xacro"/>
+
+  <!-- ================================================================ -->
+  <!-- Arguments                                                        -->
+  <!-- ================================================================ -->
+  <xacro:arg name="robot_types" default="['tmrv0_2','fr3v2','fr3v2']" />
+  <xacro:property name="robot_types_list" value="${$(arg robot_types)}" />
+
+  <xacro:arg name="no_prefix"          default="false"/>
+  <xacro:arg name="hand"               default="true" />
+  <xacro:arg name="ee_id"              default="franka_hand" />
+  <xacro:arg name="special_connection" default="" />
+  <xacro:arg name="xyz_ee"             default="0 0 0" />
+  <xacro:arg name="rpy_ee"             default="0 0 ${-pi/4}" />
+  <xacro:arg name="tcp_xyz"            default="0 0 0.1034" />
+  <xacro:arg name="tcp_rpy"            default="0 0 0" />
+  <xacro:arg name="safety_distance"    default="0.03" />
+  <xacro:arg name="with_sc"            default="false" />
+  <xacro:arg name="ros2_control"       default="false" />
+  <xacro:arg name="robot_ips"          default="['172.16.0.1','172.16.0.2','172.16.0.3']" />
+  <xacro:property name="robot_ips_list" value="${$(arg robot_ips)}" />
+  <xacro:arg name="use_fake_hardware"    default="false" />
+  <xacro:arg name="fake_sensor_commands" default="false" />
+  <xacro:arg name="gazebo_effort"        default="false" />
+  <xacro:arg name="description_pkg"      default="franka_description" />
+  <xacro:arg name="connected_to"         default="base" />
+  <xacro:arg name="reduced_version"      default="false" />
+  <xacro:arg name="use_arms"             default="true" />
+
+  <!-- ================================================================ -->
+  <!-- Robot + sensors instantiation (Layer 2 macro)                    -->
+  <!-- ================================================================ -->
+  <xacro:mobile_fr3_duo_v0_2_with_sensors
+        robot_types="$(arg robot_types)"
+        hand="$(arg hand)"
+        ros2_control="$(arg ros2_control)"
+        gazebo="true"
+        gazebo_effort="$(arg gazebo_effort)"
+        use_fake_hardware="$(arg use_fake_hardware)"
+        fake_sensor_commands="$(arg fake_sensor_commands)"
+        reduced_version="$(arg reduced_version)"
+        robot_ips="$(arg robot_ips)"
+        description_pkg="$(arg description_pkg)"
+        connected_to="$(arg connected_to)"
+        use_arms="$(arg use_arms)"
+        no_prefix="$(arg no_prefix)"
+        ee_id="$(arg ee_id)"
+        special_connection="$(arg special_connection)"
+        xyz_ee="$(arg xyz_ee)"
+        rpy_ee="$(arg rpy_ee)"
+        tcp_xyz="$(arg tcp_xyz)"
+        tcp_rpy="$(arg tcp_rpy)"
+        safety_distance="$(arg safety_distance)"
+        with_sc="$(arg with_sc)"/>
+
+
+  <!-- ================= CAMERA SENSORS ================= -->
+  <xacro:franka_gazebo_camera link_reference="camera_front_link"
+                              sensor_name="camera_front"
+                              gz_topic="/camera_front/image_raw"/>
+  <xacro:franka_gazebo_camera link_reference="camera_rear_link"
+                              sensor_name="camera_rear"
+                              gz_topic="/camera_rear/image_raw"/>
+  <xacro:franka_gazebo_camera link_reference="camera_left_link"
+                              sensor_name="camera_left"
+                              gz_topic="/camera_left/image_raw"/>
+  <xacro:franka_gazebo_camera link_reference="camera_right_link"
+                              sensor_name="camera_right"
+                              gz_topic="/camera_right/image_raw"/>
+
+  <!-- ================= LIDAR SENSORS ================= -->
+  <xacro:franka_gazebo_lidar link_reference="lidar_front"
+                              sensor_name="lidar_front"
+                              ros_topic="/lidar_front/scan"/>
+  <xacro:franka_gazebo_lidar link_reference="lidar_rear"
+                              sensor_name="lidar_rear"
+                              ros_topic="/lidar_rear/scan"/>
+
+  <!-- ================= IMU SENSOR ================= -->
+  <xacro:franka_gazebo_body_imu link_reference="imu_body_link"
+                                gz_topic="/imu/data"/>
+
+  <!-- ================================================================ -->
+  <!-- Gravity overrides                                                -->
+  <!-- ================================================================ -->
+  <xacro:disable_arm_gravity prefix="left_" robot_type="${robot_types_list[1]}"/>
+  <xacro:disable_arm_gravity prefix="right_" robot_type="${robot_types_list[2]}"/>
+  <xacro:disable_mobile_base_gravity/>
+
+</robot>

@@ -1,0 +1,47 @@
+x-common-config:
+  &common-config
+  network_mode: host
+  ipc: host
+  env_file: .env
+
+services:
+
+  docking:
+    # image: husarion/husarion-ugv-autonomy:jazzy-jazzy-devel
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: docking
+    <<: *common-config
+    volumes:
+      - ./config:/config
+      - ../husarion_ugv_docking:/ros2_ws/src/husarion_ugv_autonomy_ros/husarion_ugv_docking
+    command: >
+      ros2 launch husarion_ugv_docking docking.launch.py
+        namespace:=${ROBOT_NAMESPACE:-panther}
+        use_wibotic_info:=${USE_WIBOTIC_INFO:-True}
+        camera_image_topic:=${CAMERA_IMAGE_TOPIC:-/panther/camera/color/image_raw}
+        camera_info_topic:=${CAMERA_INFO_TOPIC:-/panther/camera/color/camera_info}
+        apriltag_output_dir:=/config/apriltags
+        apriltag_size:=0.08
+        use_sim:=False
+
+  navigation:
+    # image: husarion/husarion-ugv-autonomy:jazzy-jazzy-devel
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: navigation
+    <<: *common-config
+    volumes:
+      - ./config:/config
+      - ../maps:/maps
+      - ../husarion_ugv_navigation:/ros2_ws/src/husarion_ugv_autonomy_ros/husarion_ugv_navigation
+    command: >
+      ros2 launch husarion_ugv_navigation bringup_launch.py
+        namespace:=${ROBOT_NAMESPACE:-panther}
+        observation_topic:=${OBSERVATION_TOPIC:-err}
+        observation_topic_type:=${OBSERVATION_TOPIC_TYPE:-err}
+        slam:=${SLAM:-True}
+        use_sim_time:=False
+        robot_model:=${ROBOT_MODEL:-panther}

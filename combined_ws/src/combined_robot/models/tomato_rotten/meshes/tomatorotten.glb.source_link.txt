@@ -1,0 +1,1 @@
+/home/yusuf/.gz/models/Modul_plant0/meshes/tomatorotten.glb

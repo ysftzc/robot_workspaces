@@ -1,0 +1,114 @@
+---
+name: Build Docker
+
+on:
+  workflow_call:
+    inputs:
+      build_type:
+        description: Is it a "development" or a "stable" release?
+        required: true
+        type: string
+        default: development
+      branch_name:
+        description: Branch name to checkout to. Will default to workflow ref name if not provided.
+        type: string
+        default: ''
+      target_distro:
+        description: ROS distribution to build docker image for (eg. jazzy)
+        type: string
+        default: jazzy
+      target_release:
+        description: In case of "stable" release specify the version of the existing docker image (eg.
+          1.0.12)
+        type: string
+        default: 0.0.0
+      target_date:
+        description: In case of "stable" release specify the date of the existing docker image in format
+          YYYYMMDD (eg. 20220124)
+        type: string
+        default: '20131206'
+  workflow_dispatch:
+    inputs:
+      build_type:
+        description: Is it a "development" or a "stable" release?
+        required: true
+        type: choice
+        default: development
+        options:
+          - development
+          - stable
+      branch_name:
+        description: Branch name to checkout to. Will default to workflow ref name if not provided.
+        type: string
+        default: ''
+      target_distro:
+        description: In case of "stable" release specify the ROS distro of the existing docker image (eg.
+          jazzy)
+        type: string
+        default: jazzy
+      target_release:
+        description: In case of "stable" release specify the version of the existing docker image (eg.
+          1.0.12)
+        type: string
+        default: 0.0.0
+      target_date:
+        description: In case of "stable" release specify the date of the existing docker image in format
+          YYYYMMDD (eg. 20220124)
+        type: string
+        default: '20131206'
+
+env:
+  BRANCH_NAME: ${{ inputs.branch_name != '' && inputs.branch_name || github.ref_name }}
+
+jobs:
+  build-husarion-ugv:
+    runs-on: ubuntu-24.04-arm64
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH_NAME }}
+          fetch-depth: 0
+
+      - name: Build Docker Image
+        uses: husarion-ci/ros-docker-img-action@v0.8
+        with:
+          dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+          main_branch_name: ros2
+          dockerfile: ./docker/Dockerfile.hardware
+          repo_name: husarion-ugv
+          build_type: ${{ inputs.build_type }}
+          ros_distro: ${{ inputs.target_distro }}
+          platforms: linux/arm64
+          # variables important only for stable release
+          target_distro: ${{ inputs.target_distro }}
+          target_release: ${{ inputs.target_release }}
+          target_date: ${{ inputs.target_date }}
+
+  build-husarion-ugv-gazebo:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH_NAME }}
+          fetch-depth: 0
+
+      - name: Build Docker Image
+        uses: husarion-ci/ros-docker-img-action@v0.8
+        with:
+          dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+          dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+          main_branch_name: ros2
+          dockerfile: ./docker/Dockerfile.simulation
+          repo_name: husarion-ugv-gazebo
+          build_type: ${{ inputs.build_type }}
+          ros_distro: ${{ inputs.target_distro }}
+          platforms: linux/amd64
+          # variables important only for stable release
+          target_distro: ${{ inputs.target_distro }}
+          target_release: ${{ inputs.target_release }}
+          target_date: ${{ inputs.target_date }}

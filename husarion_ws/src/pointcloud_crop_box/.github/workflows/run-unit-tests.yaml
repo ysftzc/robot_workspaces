@@ -1,0 +1,38 @@
+---
+name: Run unit tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Run unit tests
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@v0.7
+
+      - name: Build and test
+        uses: ros-tooling/action-ros-ci@v0.3
+        id: build_test_1
+        with:
+          target-ros2-distro: jazzy
+          colcon-defaults: |
+            {
+              "build": {
+                "packages-up-to": ["pointcloud_crop_box"],
+                "cmake-args": ["-DCMAKE_BUILD_TYPE=Release"]
+              },
+              "test": {
+                "packages-up-to": ["pointcloud_crop_box"]
+              }
+            }

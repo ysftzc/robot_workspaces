@@ -1,0 +1,30 @@
+---
+name: ROS2 test build
+
+on:
+  - push
+
+jobs:
+  colcon-test-build-jazzy:
+    strategy:
+      matrix:
+        ros-distro: [jazzy, humble]
+    runs-on: ubuntu-24.04
+    container:
+      image: ros:${{ matrix.ros-distro }}-ros-core
+
+    name: Build ${{ matrix.ros-distro }}
+    steps:
+      - name: Install ROS test dependencies
+        run: |
+          apt-get update && apt-get install -y \
+            ros-dev-tools \
+            python3-colcon-coveragepy-result
+
+      - name: Initialize rosdep
+        run: rosdep init
+
+      - uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          package-name: husarion_components_description
+          target-ros2-distro: ${{ matrix.ros-distro }}

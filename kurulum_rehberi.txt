@@ -1,0 +1,96 @@
+ROS 2 Jazzy & Gazebo Harmonic - Franka + Panther Kurulum Rehberi
+
+Bu rehber GitHub'dan indirilen temiz `robot_workspaces` reposunu calistirmak icindir.
+Ubuntu 24.04, ROS 2 Jazzy ve Gazebo Harmonic kurulu kabul edilir.
+
+-----------------------------------------------------------
+ADIM 1: REPOYU INDIRME
+-----------------------------------------------------------
+cd ~
+git clone https://github.com/ysftzc/robot_workspaces.git
+cd ~/robot_workspaces
+
+Klasor hiyerarsisi su sekilde olmalidir:
+~/robot_workspaces/husarion_ws
+~/robot_workspaces/franka_ros2_ws
+~/robot_workspaces/combined_ws
+
+-----------------------------------------------------------
+ADIM 2: GEREKLI KUTUPHANELERI YUKLEME
+-----------------------------------------------------------
+sudo apt update
+sudo apt install ros-jazzy-ros2-control ros-jazzy-ros2-controllers ros-jazzy-gz-ros2-control ros-jazzy-ros-gz python3-scipy python3-numpy python3-rosdep2 -y
+
+rosdep update
+cd ~/robot_workspaces
+rosdep install --from-paths husarion_ws/src franka_ros2_ws/src combined_ws/src --ignore-src -r -y --skip-keys "ament_python libfranka olv_module_descriptions"
+
+Not:
+- `ament_python`, `libfranka` ve `olv_module_descriptions` icin ROS Jazzy/Noble rosdep tarafinda karsilik cikmayabiliyor.
+- Bu simulasyonun ana launch dosyasi icin full Franka hardware stack degil, `franka_description` yeterlidir.
+
+-----------------------------------------------------------
+ADIM 3: PROJELERI SIRASIYLA DERLEME
+-----------------------------------------------------------
+Terminalde sirasiyla su komutlari gir:
+
+source /opt/ros/jazzy/setup.bash
+
+# 1. Husarion / Panther icin gerekli paketler
+cd ~/robot_workspaces/husarion_ws
+colcon build --symlink-install --packages-up-to husarion_ugv_description husarion_ugv_gazebo husarion_ugv_controller
+source install/setup.bash
+
+# 2. Franka icin gerekli description paketi
+cd ~/robot_workspaces/franka_ros2_ws
+colcon build --symlink-install --packages-select franka_description
+source install/setup.bash
+
+# 3. Ana birlestirilmis proje
+cd ~/robot_workspaces/combined_ws
+colcon build --symlink-install
+source install/setup.bash
+
+-----------------------------------------------------------
+ADIM 4: SIMULASYONU BASLATMA
+-----------------------------------------------------------
+Derleme bittikten sonra AYNI terminalde Gazebo simulasyonunu baslat:
+
+ros2 launch combined_robot combined_gazebo_sera.launch.py
+
+Yeni terminal acarsan once su sirayla source et:
+
+source /opt/ros/jazzy/setup.bash
+source ~/robot_workspaces/husarion_ws/install/setup.bash
+source ~/robot_workspaces/franka_ros2_ws/install/setup.bash
+source ~/robot_workspaces/combined_ws/install/setup.bash
+
+-----------------------------------------------------------
+ADIM 5: CONTROLLER KONTROLU
+-----------------------------------------------------------
+Gazebo acildiktan sonra yeni bir terminalde:
+
+source /opt/ros/jazzy/setup.bash
+source ~/robot_workspaces/husarion_ws/install/setup.bash
+source ~/robot_workspaces/franka_ros2_ws/install/setup.bash
+source ~/robot_workspaces/combined_ws/install/setup.bash
+ros2 control list_controllers
+
+Beklenen durum:
+fr3_arm_controller      active
+fr3_gripper_controller  active
+drive_controller        active
+joint_state_broadcaster active
+
+-----------------------------------------------------------
+ADIM 6: OTONOM GOREVI CALISTIRMA
+-----------------------------------------------------------
+Gazebo tamamen acilip robotlar gorundugunde, yeni terminalde:
+
+source /opt/ros/jazzy/setup.bash
+source ~/robot_workspaces/husarion_ws/install/setup.bash
+source ~/robot_workspaces/franka_ros2_ws/install/setup.bash
+source ~/robot_workspaces/combined_ws/install/setup.bash
+python3 ~/robot_workspaces/combined_ws/geometric_pick_and_place.py
+
+-----------------------------------------------------------

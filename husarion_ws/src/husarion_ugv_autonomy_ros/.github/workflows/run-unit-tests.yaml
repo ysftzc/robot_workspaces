@@ -1,0 +1,48 @@
+---
+name: Run unit tests
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  pre-commit:
+    name: Pre-commit
+    uses: ros-controls/ros2_control_ci/.github/workflows/reusable-pre-commit.yml@master
+    with:
+      ros_distro: jazzy
+
+  build-and-test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup ROS
+        uses: ros-tooling/setup-ros@v0.7
+
+      - name: Build and test
+        uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          vcs-repo-file-url: ${{ github.workspace }}/husarion_ugv_autonomy/autonomy_deps.repos
+          target-ros2-distro: jazzy
+          colcon-defaults: |
+            {
+              "build": {
+                "cmake-args": ["-DCMAKE_BUILD_TYPE=Release", "-DBUILD_TESTING=ON"],
+                "packages-up-to": [
+                    "husarion_ugv_autonomy"
+                ]
+              },
+              "test": {
+                "packages-select": [
+                    "husarion_ugv_autonomy",
+                    "husarion_ugv_docking",
+                    "husarion_ugv_navigation"
+                ]
+              }
+            }

@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!-- Red sphere (tomato placeholder) on a static pedestal.
+     Spawned by combined_gazebo.launch.py at world position (0.678, 0, 0).
+     The sphere sits at z=0.677m — the computed TCP height during grasp.
+     Adjust pedestal_height and sphere_z in the launch file if needed. -->
+<sdf version="1.7">
+
+  <!-- ── Static pedestal ─────────────────────────────────── -->
+  <model name="pickup_pedestal">
+    <static>true</static>
+    <link name="link">
+      <!-- Thin post: 8×8cm footprint, 0.647m tall → top surface at 0.647m -->
+      <visual name="vis">
+        <pose>0 0 0.3235 0 0 0</pose>
+        <geometry><box><size>0.08 0.08 0.647</size></box></geometry>
+        <material>
+          <diffuse>0.55 0.37 0.15 1</diffuse>
+        </material>
+      </visual>
+      <collision name="col">
+        <pose>0 0 0.3235 0 0 0</pose>
+        <geometry><box><size>0.08 0.08 0.647</size></box></geometry>
+      </collision>
+    </link>
+  </model>
+
+</sdf>

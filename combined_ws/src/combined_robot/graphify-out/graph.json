@@ -1,0 +1,2419 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "label": "setup.py",
+      "file_type": "code",
+      "source_file": "setup.py",
+      "source_location": "L1",
+      "id": "setup_py",
+      "community": 7,
+      "norm_label": "setup.py"
+    },
+    {
+      "label": "package_files()",
+      "file_type": "code",
+      "source_file": "setup.py",
+      "source_location": "L7",
+      "id": "combined_robot_setup_package_files",
+      "community": 7,
+      "norm_label": "package_files()"
+    },
+    {
+      "label": "sera_mission.launch.py",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/launch/sera_mission.launch.py",
+      "source_location": "L1",
+      "id": "install_combined_robot_share_combined_robot_launch_sera_mission_launch_py",
+      "community": 0,
+      "norm_label": "sera_mission.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/launch/sera_mission.launch.py",
+      "source_location": "L13",
+      "id": "launch_sera_mission_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined.launch.py",
+      "file_type": "code",
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_launch_py",
+      "community": 0,
+      "norm_label": "combined.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L14",
+      "id": "launch_combined_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined.launch.py Minimal launch: starts robot_state_publisher only (no Gazebo,",
+      "file_type": "rationale",
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_launch_rationale_1",
+      "community": 0,
+      "norm_label": "combined.launch.py minimal launch: starts robot_state_publisher only (no gazebo,"
+    },
+    {
+      "label": "sera_survey.launch.py",
+      "file_type": "code",
+      "source_file": "launch/sera_survey.launch.py",
+      "source_location": "L1",
+      "id": "launch_sera_survey_launch_py",
+      "community": 8,
+      "norm_label": "sera_survey.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/sera_survey.launch.py",
+      "source_location": "L11",
+      "id": "launch_sera_survey_launch_generate_launch_description",
+      "community": 8,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined_gazebo.launch (Copy).py",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_launch_copy_py",
+      "community": 4,
+      "norm_label": "combined_gazebo.launch (copy).py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L31",
+      "id": "launch_combined_gazebo_launch_copy_generate_launch_description",
+      "community": 4,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined_gazebo.launch.py Launches the Panther + Franka FR3 combined robot in Ga",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_launch_copy_rationale_1",
+      "community": 4,
+      "norm_label": "combined_gazebo.launch.py launches the panther + franka fr3 combined robot in ga"
+    },
+    {
+      "label": "# IMPORTANT: This is delayed (see below) so that drive_controller's",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L151",
+      "id": "launch_combined_gazebo_launch_copy_rationale_151",
+      "community": 4,
+      "norm_label": "# important: this is delayed (see below) so that drive_controller's"
+    },
+    {
+      "label": "# NOTE: odometry/wheels remap REMOVED \u2014 drive_controller already",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L198",
+      "id": "launch_combined_gazebo_launch_copy_rationale_198",
+      "community": 4,
+      "norm_label": "# note: odometry/wheels remap removed \u2014 drive_controller already"
+    },
+    {
+      "label": "# NOTE: imu_broadcaster is intentionally NOT spawned here.",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L208",
+      "id": "launch_combined_gazebo_launch_copy_rationale_208",
+      "community": 4,
+      "norm_label": "# note: imu_broadcaster is intentionally not spawned here."
+    },
+    {
+      "label": "combined_gazebo_sera.launch.py",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_sera_launch_py",
+      "community": 0,
+      "norm_label": "combined_gazebo_sera.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L31",
+      "id": "launch_combined_gazebo_sera_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined_gazebo.launch.py Launches the Panther + Franka FR3 combined robot in Ga",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_sera_launch_rationale_1",
+      "community": 0,
+      "norm_label": "combined_gazebo.launch.py launches the panther + franka fr3 combined robot in ga"
+    },
+    {
+      "label": "# NOTE: imu_broadcaster is intentionally NOT spawned here.",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L182",
+      "id": "launch_combined_gazebo_sera_launch_rationale_182",
+      "community": 0,
+      "norm_label": "# note: imu_broadcaster is intentionally not spawned here."
+    },
+    {
+      "label": "sera_mapping.launch.py",
+      "file_type": "code",
+      "source_file": "launch/sera_mapping.launch.py",
+      "source_location": "L1",
+      "id": "launch_sera_mapping_launch_py",
+      "community": 0,
+      "norm_label": "sera_mapping.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/sera_mapping.launch.py",
+      "source_location": "L13",
+      "id": "launch_sera_mapping_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "mapping_gazebo.launch.py",
+      "file_type": "code",
+      "source_file": "launch/mapping_gazebo.launch.py",
+      "source_location": "L1",
+      "id": "launch_mapping_gazebo_launch_py",
+      "community": 0,
+      "norm_label": "mapping_gazebo.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/mapping_gazebo.launch.py",
+      "source_location": "L11",
+      "id": "launch_mapping_gazebo_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "test_lidar.launch.py",
+      "file_type": "code",
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L1",
+      "id": "launch_test_lidar_launch_py",
+      "community": 0,
+      "norm_label": "test_lidar.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L18",
+      "id": "launch_test_lidar_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "Minimal test: Panther + Franka in empty world. Only spawns robot + lidar bridge",
+      "file_type": "rationale",
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L1",
+      "id": "launch_test_lidar_launch_rationale_1",
+      "community": 0,
+      "norm_label": "minimal test: panther + franka in empty world. only spawns robot + lidar bridge"
+    },
+    {
+      "label": "sera_nav2.launch.py",
+      "file_type": "code",
+      "source_file": "launch/sera_nav2.launch.py",
+      "source_location": "L1",
+      "id": "launch_sera_nav2_launch_py",
+      "community": 0,
+      "norm_label": "sera_nav2.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/sera_nav2.launch.py",
+      "source_location": "L13",
+      "id": "launch_sera_nav2_launch_generate_launch_description",
+      "community": 0,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined_gazebo.launch.py",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_launch_py",
+      "community": 5,
+      "norm_label": "combined_gazebo.launch.py"
+    },
+    {
+      "label": "generate_launch_description()",
+      "file_type": "code",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L31",
+      "id": "launch_combined_gazebo_launch_generate_launch_description",
+      "community": 5,
+      "norm_label": "generate_launch_description()"
+    },
+    {
+      "label": "combined_gazebo.launch.py Launches the Panther + Franka FR3 combined robot in Ga",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L1",
+      "id": "launch_combined_gazebo_launch_rationale_1",
+      "community": 5,
+      "norm_label": "combined_gazebo.launch.py launches the panther + franka fr3 combined robot in ga"
+    },
+    {
+      "label": "# NOTE: imu_broadcaster is intentionally NOT spawned here.",
+      "file_type": "rationale",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L154",
+      "id": "launch_combined_gazebo_launch_rationale_154",
+      "community": 5,
+      "norm_label": "# note: imu_broadcaster is intentionally not spawned here."
+    },
+    {
+      "label": "_local_setup_util_sh.py",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L1",
+      "id": "install_local_setup_util_sh_py",
+      "community": 1,
+      "norm_label": "_local_setup_util_sh.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L26",
+      "id": "install_local_setup_util_sh_main",
+      "community": 1,
+      "norm_label": "main()"
+    },
+    {
+      "label": "get_packages()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L62",
+      "id": "install_local_setup_util_sh_get_packages",
+      "community": 1,
+      "norm_label": "get_packages()"
+    },
+    {
+      "label": "add_package_runtime_dependencies()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L108",
+      "id": "install_local_setup_util_sh_add_package_runtime_dependencies",
+      "community": 1,
+      "norm_label": "add_package_runtime_dependencies()"
+    },
+    {
+      "label": "order_packages()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L121",
+      "id": "install_local_setup_util_sh_order_packages",
+      "community": 1,
+      "norm_label": "order_packages()"
+    },
+    {
+      "label": "reduce_cycle_set()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L151",
+      "id": "install_local_setup_util_sh_reduce_cycle_set",
+      "community": 1,
+      "norm_label": "reduce_cycle_set()"
+    },
+    {
+      "label": "_include_comments()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L176",
+      "id": "install_local_setup_util_sh_include_comments",
+      "community": 1,
+      "norm_label": "_include_comments()"
+    },
+    {
+      "label": "get_commands()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L182",
+      "id": "install_local_setup_util_sh_get_commands",
+      "community": 1,
+      "norm_label": "get_commands()"
+    },
+    {
+      "label": "process_dsv_file()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L191",
+      "id": "install_local_setup_util_sh_process_dsv_file",
+      "community": 1,
+      "norm_label": "process_dsv_file()"
+    },
+    {
+      "label": "handle_dsv_types_except_source()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L264",
+      "id": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "community": 1,
+      "norm_label": "handle_dsv_types_except_source()"
+    },
+    {
+      "label": "_append_unique_value()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L322",
+      "id": "install_local_setup_util_sh_append_unique_value",
+      "community": 1,
+      "norm_label": "_append_unique_value()"
+    },
+    {
+      "label": "_prepend_unique_value()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L344",
+      "id": "install_local_setup_util_sh_prepend_unique_value",
+      "community": 1,
+      "norm_label": "_prepend_unique_value()"
+    },
+    {
+      "label": "_remove_ending_separators()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L367",
+      "id": "install_local_setup_util_sh_remove_ending_separators",
+      "community": 1,
+      "norm_label": "_remove_ending_separators()"
+    },
+    {
+      "label": "_set()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L384",
+      "id": "install_local_setup_util_sh_set",
+      "community": 1,
+      "norm_label": "_set()"
+    },
+    {
+      "label": "_set_if_unset()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L392",
+      "id": "install_local_setup_util_sh_set_if_unset",
+      "community": 1,
+      "norm_label": "_set_if_unset()"
+    },
+    {
+      "label": "Find packages based on colcon-specific files created during installation.      :",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L63",
+      "id": "install_local_setup_util_sh_rationale_63",
+      "community": 1,
+      "norm_label": "find packages based on colcon-specific files created during installation.      :"
+    },
+    {
+      "label": "Check the path and if it exists extract the packages runtime dependencies.",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L109",
+      "id": "install_local_setup_util_sh_rationale_109",
+      "community": 1,
+      "norm_label": "check the path and if it exists extract the packages runtime dependencies."
+    },
+    {
+      "label": "Order packages topologically.      :param dict packages: A mapping from package",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L122",
+      "id": "install_local_setup_util_sh_rationale_122",
+      "community": 1,
+      "norm_label": "order packages topologically.      :param dict packages: a mapping from package"
+    },
+    {
+      "label": "Reduce the set of packages to the ones part of the circular dependency.      :pa",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L152",
+      "id": "install_local_setup_util_sh_rationale_152",
+      "community": 1,
+      "norm_label": "reduce the set of packages to the ones part of the circular dependency.      :pa"
+    },
+    {
+      "label": "setup.ps1",
+      "file_type": "code",
+      "source_file": "install/setup.ps1",
+      "source_location": "L1",
+      "id": "install_setup_ps1",
+      "community": 9,
+      "norm_label": "setup.ps1"
+    },
+    {
+      "label": "_colcon_prefix_chain_powershell_source_script()",
+      "file_type": "code",
+      "source_file": "install/setup.ps1",
+      "source_location": "L10",
+      "id": "install_setup_colcon_prefix_chain_powershell_source_script",
+      "community": 9,
+      "norm_label": "_colcon_prefix_chain_powershell_source_script()"
+    },
+    {
+      "label": "local_setup.ps1",
+      "file_type": "code",
+      "source_file": "install/local_setup.ps1",
+      "source_location": "L1",
+      "id": "install_local_setup_ps1",
+      "community": 10,
+      "norm_label": "local_setup.ps1"
+    },
+    {
+      "label": "_colcon_prefix_powershell_source_script()",
+      "file_type": "code",
+      "source_file": "install/local_setup.ps1",
+      "source_location": "L28",
+      "id": "install_local_setup_colcon_prefix_powershell_source_script",
+      "community": 10,
+      "norm_label": "_colcon_prefix_powershell_source_script()"
+    },
+    {
+      "label": "_local_setup_util_ps1.py",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L1",
+      "id": "install_local_setup_util_ps1_py",
+      "community": 2,
+      "norm_label": "_local_setup_util_ps1.py"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L26",
+      "id": "install_local_setup_util_ps1_main",
+      "community": 2,
+      "norm_label": "main()"
+    },
+    {
+      "label": "get_packages()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L62",
+      "id": "install_local_setup_util_ps1_get_packages",
+      "community": 2,
+      "norm_label": "get_packages()"
+    },
+    {
+      "label": "add_package_runtime_dependencies()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L108",
+      "id": "install_local_setup_util_ps1_add_package_runtime_dependencies",
+      "community": 2,
+      "norm_label": "add_package_runtime_dependencies()"
+    },
+    {
+      "label": "order_packages()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L121",
+      "id": "install_local_setup_util_ps1_order_packages",
+      "community": 2,
+      "norm_label": "order_packages()"
+    },
+    {
+      "label": "reduce_cycle_set()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L151",
+      "id": "install_local_setup_util_ps1_reduce_cycle_set",
+      "community": 2,
+      "norm_label": "reduce_cycle_set()"
+    },
+    {
+      "label": "_include_comments()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L176",
+      "id": "install_local_setup_util_ps1_include_comments",
+      "community": 2,
+      "norm_label": "_include_comments()"
+    },
+    {
+      "label": "get_commands()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L182",
+      "id": "install_local_setup_util_ps1_get_commands",
+      "community": 2,
+      "norm_label": "get_commands()"
+    },
+    {
+      "label": "process_dsv_file()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L191",
+      "id": "install_local_setup_util_ps1_process_dsv_file",
+      "community": 2,
+      "norm_label": "process_dsv_file()"
+    },
+    {
+      "label": "handle_dsv_types_except_source()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L264",
+      "id": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "community": 2,
+      "norm_label": "handle_dsv_types_except_source()"
+    },
+    {
+      "label": "_append_unique_value()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L322",
+      "id": "install_local_setup_util_ps1_append_unique_value",
+      "community": 2,
+      "norm_label": "_append_unique_value()"
+    },
+    {
+      "label": "_prepend_unique_value()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L344",
+      "id": "install_local_setup_util_ps1_prepend_unique_value",
+      "community": 2,
+      "norm_label": "_prepend_unique_value()"
+    },
+    {
+      "label": "_remove_ending_separators()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L367",
+      "id": "install_local_setup_util_ps1_remove_ending_separators",
+      "community": 2,
+      "norm_label": "_remove_ending_separators()"
+    },
+    {
+      "label": "_set()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L384",
+      "id": "install_local_setup_util_ps1_set",
+      "community": 2,
+      "norm_label": "_set()"
+    },
+    {
+      "label": "_set_if_unset()",
+      "file_type": "code",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L392",
+      "id": "install_local_setup_util_ps1_set_if_unset",
+      "community": 2,
+      "norm_label": "_set_if_unset()"
+    },
+    {
+      "label": "Find packages based on colcon-specific files created during installation.      :",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L63",
+      "id": "install_local_setup_util_ps1_rationale_63",
+      "community": 2,
+      "norm_label": "find packages based on colcon-specific files created during installation.      :"
+    },
+    {
+      "label": "Check the path and if it exists extract the packages runtime dependencies.",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L109",
+      "id": "install_local_setup_util_ps1_rationale_109",
+      "community": 2,
+      "norm_label": "check the path and if it exists extract the packages runtime dependencies."
+    },
+    {
+      "label": "Order packages topologically.      :param dict packages: A mapping from package",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L122",
+      "id": "install_local_setup_util_ps1_rationale_122",
+      "community": 2,
+      "norm_label": "order packages topologically.      :param dict packages: a mapping from package"
+    },
+    {
+      "label": "Reduce the set of packages to the ones part of the circular dependency.      :pa",
+      "file_type": "rationale",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L152",
+      "id": "install_local_setup_util_ps1_rationale_152",
+      "community": 2,
+      "norm_label": "reduce the set of packages to the ones part of the circular dependency.      :pa"
+    },
+    {
+      "label": "package.ps1",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L1",
+      "id": "install_combined_robot_share_combined_robot_package_ps1",
+      "community": 6,
+      "norm_label": "package.ps1"
+    },
+    {
+      "label": "colcon_append_unique_value()",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L8",
+      "id": "combined_robot_package_colcon_append_unique_value",
+      "community": 6,
+      "norm_label": "colcon_append_unique_value()"
+    },
+    {
+      "label": "colcon_prepend_unique_value()",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L59",
+      "id": "combined_robot_package_colcon_prepend_unique_value",
+      "community": 6,
+      "norm_label": "colcon_prepend_unique_value()"
+    },
+    {
+      "label": "colcon_package_source_powershell_script()",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L93",
+      "id": "combined_robot_package_colcon_package_source_powershell_script",
+      "community": 6,
+      "norm_label": "colcon_package_source_powershell_script()"
+    },
+    {
+      "label": "ament_prefix_path.ps1",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/hook/ament_prefix_path.ps1",
+      "source_location": "L1",
+      "id": "install_combined_robot_share_combined_robot_hook_ament_prefix_path_ps1",
+      "community": 11,
+      "norm_label": "ament_prefix_path.ps1"
+    },
+    {
+      "label": "pythonpath.ps1",
+      "file_type": "code",
+      "source_file": "install/combined_robot/share/combined_robot/hook/pythonpath.ps1",
+      "source_location": "L1",
+      "id": "install_combined_robot_share_combined_robot_hook_pythonpath_ps1",
+      "community": 12,
+      "norm_label": "pythonpath.ps1"
+    },
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "combined_robot/__init__.py",
+      "source_location": "L1",
+      "id": "combined_robot_init_py",
+      "community": 13,
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "mission_manager.py",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L1",
+      "id": "combined_robot_mission_manager_py",
+      "community": 3,
+      "norm_label": "mission_manager.py"
+    },
+    {
+      "label": "MissionManager",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L14",
+      "id": "combined_robot_mission_manager_missionmanager",
+      "community": 3,
+      "norm_label": "missionmanager"
+    },
+    {
+      "label": "Node",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "id": "node",
+      "community": 0,
+      "norm_label": "node"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L15",
+      "id": "combined_robot_mission_manager_missionmanager_init",
+      "community": 3,
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._as_bool()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L66",
+      "id": "combined_robot_mission_manager_missionmanager_as_bool",
+      "community": 3,
+      "norm_label": "._as_bool()"
+    },
+    {
+      "label": "._load_route()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L73",
+      "id": "combined_robot_mission_manager_missionmanager_load_route",
+      "community": 3,
+      "norm_label": "._load_route()"
+    },
+    {
+      "label": "._handle_start()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L100",
+      "id": "combined_robot_mission_manager_missionmanager_handle_start",
+      "community": 3,
+      "norm_label": "._handle_start()"
+    },
+    {
+      "label": "._handle_stop()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L118",
+      "id": "combined_robot_mission_manager_missionmanager_handle_stop",
+      "community": 3,
+      "norm_label": "._handle_stop()"
+    },
+    {
+      "label": "._handle_reset()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L128",
+      "id": "combined_robot_mission_manager_missionmanager_handle_reset",
+      "community": 3,
+      "norm_label": "._handle_reset()"
+    },
+    {
+      "label": "._handle_amcl_pose()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L139",
+      "id": "combined_robot_mission_manager_missionmanager_handle_amcl_pose",
+      "community": 3,
+      "norm_label": "._handle_amcl_pose()"
+    },
+    {
+      "label": "._begin_mission()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L149",
+      "id": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "community": 3,
+      "norm_label": "._begin_mission()"
+    },
+    {
+      "label": "._cancel_retry_timer()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L154",
+      "id": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "community": 3,
+      "norm_label": "._cancel_retry_timer()"
+    },
+    {
+      "label": "._schedule_retry()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L159",
+      "id": "combined_robot_mission_manager_missionmanager_schedule_retry",
+      "community": 3,
+      "norm_label": "._schedule_retry()"
+    },
+    {
+      "label": "._send_next_goal_once()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L163",
+      "id": "combined_robot_mission_manager_missionmanager_send_next_goal_once",
+      "community": 3,
+      "norm_label": "._send_next_goal_once()"
+    },
+    {
+      "label": "._send_next_goal()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L168",
+      "id": "combined_robot_mission_manager_missionmanager_send_next_goal",
+      "community": 3,
+      "norm_label": "._send_next_goal()"
+    },
+    {
+      "label": "._make_pose()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L196",
+      "id": "combined_robot_mission_manager_missionmanager_make_pose",
+      "community": 3,
+      "norm_label": "._make_pose()"
+    },
+    {
+      "label": "._on_goal_response()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L209",
+      "id": "combined_robot_mission_manager_missionmanager_on_goal_response",
+      "community": 3,
+      "norm_label": "._on_goal_response()"
+    },
+    {
+      "label": "._on_goal_result()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L221",
+      "id": "combined_robot_mission_manager_missionmanager_on_goal_result",
+      "community": 3,
+      "norm_label": "._on_goal_result()"
+    },
+    {
+      "label": "._publish_status()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L239",
+      "id": "combined_robot_mission_manager_missionmanager_publish_status",
+      "community": 3,
+      "norm_label": "._publish_status()"
+    },
+    {
+      "label": "main()",
+      "file_type": "code",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L252",
+      "id": "combined_robot_mission_manager_main",
+      "community": 3,
+      "norm_label": "main()"
+    },
+    {
+      "label": "sera_mission.launch.py",
+      "file_type": "code",
+      "source_file": "launch/sera_mission.launch.py",
+      "source_location": "L1",
+      "community": 0,
+      "norm_label": "sera_mission.launch.py",
+      "id": "launch_sera_mission_launch_py"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "setup.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "setup_py",
+      "target": "combined_robot_setup_package_files"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/combined_robot/share/combined_robot/launch/sera_mission.launch.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_combined_robot_share_combined_robot_launch_sera_mission_launch_py",
+      "target": "launch_sera_mission_launch_generate_launch_description"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/sera_mission.launch.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "launch_sera_mission_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/sera_mission.launch.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_sera_mission_launch_py",
+      "target": "launch_sera_mission_launch_generate_launch_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_launch_py",
+      "target": "launch_combined_launch_generate_launch_description"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_launch_rationale_1",
+      "target": "launch_combined_launch_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/combined.launch.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "launch_combined_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/sera_survey.launch.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_sera_survey_launch_py",
+      "target": "launch_sera_survey_launch_generate_launch_description"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_py",
+      "target": "launch_combined_gazebo_launch_copy_generate_launch_description"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_rationale_1",
+      "target": "launch_combined_gazebo_launch_copy_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_rationale_151",
+      "target": "launch_combined_gazebo_launch_copy_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L198",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_rationale_198",
+      "target": "launch_combined_gazebo_launch_copy_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_rationale_208",
+      "target": "launch_combined_gazebo_launch_copy_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/combined_gazebo.launch (Copy).py",
+      "source_location": "L99",
+      "weight": 1.0,
+      "source": "launch_combined_gazebo_launch_copy_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_sera_launch_py",
+      "target": "launch_combined_gazebo_sera_launch_generate_launch_description"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_sera_launch_rationale_1",
+      "target": "launch_combined_gazebo_sera_launch_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_sera_launch_rationale_182",
+      "target": "launch_combined_gazebo_sera_launch_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/combined_gazebo_sera.launch.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "source": "launch_combined_gazebo_sera_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/sera_mapping.launch.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_sera_mapping_launch_py",
+      "target": "launch_sera_mapping_launch_generate_launch_description"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/sera_mapping.launch.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "source": "launch_sera_mapping_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/mapping_gazebo.launch.py",
+      "source_location": "L11",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_mapping_gazebo_launch_py",
+      "target": "launch_mapping_gazebo_launch_generate_launch_description"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/mapping_gazebo.launch.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "launch_mapping_gazebo_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_test_lidar_launch_py",
+      "target": "launch_test_lidar_launch_generate_launch_description"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_test_lidar_launch_rationale_1",
+      "target": "launch_test_lidar_launch_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/test_lidar.launch.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "launch_test_lidar_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/sera_nav2.launch.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_sera_nav2_launch_py",
+      "target": "launch_sera_nav2_launch_generate_launch_description"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/sera_nav2.launch.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "launch_sera_nav2_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_py",
+      "target": "launch_combined_gazebo_launch_generate_launch_description"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_rationale_1",
+      "target": "launch_combined_gazebo_launch_py"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "launch_combined_gazebo_launch_rationale_154",
+      "target": "launch_combined_gazebo_launch_py"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "launch/combined_gazebo.launch.py",
+      "source_location": "L97",
+      "weight": 1.0,
+      "source": "launch_combined_gazebo_launch_generate_launch_description",
+      "target": "node"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_get_packages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_order_packages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_reduce_cycle_set"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_get_commands"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_process_dsv_file"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_handle_dsv_types_except_source"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L322",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_append_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L344",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_prepend_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L367",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_remove_ending_separators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L384",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_set"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L392",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_py",
+      "target": "install_local_setup_util_sh_set_if_unset"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_main",
+      "target": "install_local_setup_util_sh_get_packages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_main",
+      "target": "install_local_setup_util_sh_order_packages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_main",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_main",
+      "target": "install_local_setup_util_sh_get_commands"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_main",
+      "target": "install_local_setup_util_sh_remove_ending_separators"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_get_packages",
+      "target": "install_local_setup_util_sh_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_rationale_63",
+      "target": "install_local_setup_util_sh_get_packages"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_rationale_109",
+      "target": "install_local_setup_util_sh_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_order_packages",
+      "target": "install_local_setup_util_sh_reduce_cycle_set"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_rationale_122",
+      "target": "install_local_setup_util_sh_order_packages"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_rationale_152",
+      "target": "install_local_setup_util_sh_reduce_cycle_set"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_process_dsv_file",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L306",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L338",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_append_unique_value",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L360",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_prepend_unique_value",
+      "target": "install_local_setup_util_sh_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_get_commands",
+      "target": "install_local_setup_util_sh_process_dsv_file"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_process_dsv_file",
+      "target": "install_local_setup_util_sh_handle_dsv_types_except_source"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_sh_set"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_sh_set_if_unset"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_sh_append_unique_value"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_sh.py",
+      "source_location": "L312",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_sh_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_sh_prepend_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/setup.ps1",
+      "source_location": "L10",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_setup_ps1",
+      "target": "install_setup_colcon_prefix_chain_powershell_source_script"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/local_setup.ps1",
+      "source_location": "L28",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_ps1",
+      "target": "install_local_setup_colcon_prefix_powershell_source_script"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_main"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_get_packages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L108",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_order_packages"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L151",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_reduce_cycle_set"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L176",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L182",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_get_commands"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L191",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_process_dsv_file"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L264",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_handle_dsv_types_except_source"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L322",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_append_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L344",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_prepend_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L367",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_remove_ending_separators"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L384",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_set"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L392",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_py",
+      "target": "install_local_setup_util_ps1_set_if_unset"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L41",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_main",
+      "target": "install_local_setup_util_ps1_get_packages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_main",
+      "target": "install_local_setup_util_ps1_order_packages"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_main",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_main",
+      "target": "install_local_setup_util_ps1_get_commands"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_main",
+      "target": "install_local_setup_util_ps1_remove_ending_separators"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_get_packages",
+      "target": "install_local_setup_util_ps1_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_rationale_63",
+      "target": "install_local_setup_util_ps1_get_packages"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L109",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_rationale_109",
+      "target": "install_local_setup_util_ps1_add_package_runtime_dependencies"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L137",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_order_packages",
+      "target": "install_local_setup_util_ps1_reduce_cycle_set"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_rationale_122",
+      "target": "install_local_setup_util_ps1_order_packages"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_rationale_152",
+      "target": "install_local_setup_util_ps1_reduce_cycle_set"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L195",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_process_dsv_file",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L306",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L338",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_append_unique_value",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L360",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_prepend_unique_value",
+      "target": "install_local_setup_util_ps1_include_comments"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L186",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_get_commands",
+      "target": "install_local_setup_util_ps1_process_dsv_file"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L218",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_process_dsv_file",
+      "target": "install_local_setup_util_ps1_handle_dsv_types_except_source"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L277",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_ps1_set"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L279",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_ps1_set_if_unset"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L310",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_ps1_append_unique_value"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "install/_local_setup_util_ps1.py",
+      "source_location": "L312",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_local_setup_util_ps1_handle_dsv_types_except_source",
+      "target": "install_local_setup_util_ps1_prepend_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L8",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_combined_robot_share_combined_robot_package_ps1",
+      "target": "combined_robot_package_colcon_append_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L59",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_combined_robot_share_combined_robot_package_ps1",
+      "target": "combined_robot_package_colcon_prepend_unique_value"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "install/combined_robot/share/combined_robot/package.ps1",
+      "source_location": "L93",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "install_combined_robot_share_combined_robot_package_ps1",
+      "target": "combined_robot_package_colcon_package_source_powershell_script"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_py",
+      "target": "combined_robot_mission_manager_missionmanager"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L212",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_py",
+      "target": "combined_robot_mission_manager_main"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L14",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "node"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_as_bool"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_load_route"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_handle_start"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L101",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_handle_stop"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L110",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_handle_reset"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_handle_amcl_pose",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L149",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L154",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L159",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_schedule_retry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal_once"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L124",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_make_pose"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L165",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_on_goal_response"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_on_goal_result"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L199",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager",
+      "target": "combined_robot_mission_manager_missionmanager_publish_status"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_main",
+      "target": "combined_robot_mission_manager_missionmanager"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_init",
+      "target": "combined_robot_mission_manager_missionmanager_as_bool"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_init",
+      "target": "combined_robot_mission_manager_missionmanager_load_route"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_init",
+      "target": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_handle_start",
+      "target": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L96",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_handle_start",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_handle_stop",
+      "target": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L131",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_handle_reset",
+      "target": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L147",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_handle_amcl_pose",
+      "target": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L152",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_begin_mission",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L160",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_schedule_retry",
+      "target": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L164",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_send_next_goal_once",
+      "target": "combined_robot_mission_manager_missionmanager_cancel_retry_timer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L181",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_send_next_goal",
+      "target": "combined_robot_mission_manager_missionmanager_schedule_retry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L214",
+      "weight": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_on_goal_response",
+      "target": "combined_robot_mission_manager_missionmanager_schedule_retry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L122",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_send_next_goal_once",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L142",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_send_next_goal",
+      "target": "combined_robot_mission_manager_missionmanager_make_pose"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L189",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_on_goal_result",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "combined_robot/mission_manager.py",
+      "source_location": "L174",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "combined_robot_mission_manager_missionmanager_on_goal_response",
+      "target": "combined_robot_mission_manager_missionmanager_send_next_goal"
+    }
+  ],
+  "hyperedges": []
+}

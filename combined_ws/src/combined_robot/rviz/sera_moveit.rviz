@@ -1,0 +1,125 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /MotionPlanning1
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Value: true
+      Plane: XY
+      Reference Frame: <Fixed Frame>
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: false
+      Value: false
+    - Alpha: 1
+      Class: rviz_default_plugins/RobotModel
+      Collision Enabled: false
+      Description Source: Topic
+      Description Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot_description
+      Enabled: true
+      Name: Live Robot Model
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Tomato Collision Markers
+      Namespaces:
+        tomato_collision_scene: true
+      Queue Size: 10
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /tomato_collision_scene/markers
+      Value: true
+    - Class: moveit_rviz_plugin/MotionPlanning
+      Enabled: true
+      Move Group Namespace: ""
+      MoveIt_Allow_Approximate_IK: true
+      MoveIt_Allow_Replanning: true
+      MoveIt_Planning_Attempts: 5
+      MoveIt_Planning_Time: 5
+      MoveIt_Use_Cartesian_Path: false
+      Name: MotionPlanning
+      Planned Path:
+        Loop Animation: false
+        Robot Alpha: 0.5
+        Show Robot Collision: false
+        Show Robot Visual: true
+        State Display Time: 0.05 s
+        Trajectory Topic: /display_planned_path
+      Planning Request:
+        Goal State Alpha: 1
+        Goal State Color: 250; 128; 0
+        Interactive Marker Size: 0
+        Planning Group: fr3_arm
+        Query Goal State: true
+        Query Start State: false
+        Show Workspace: false
+        Start State Alpha: 1
+        Start State Color: 0; 255; 0
+      Planning Scene Topic: /monitored_planning_scene
+      Robot Description: robot_description
+      Scene Geometry:
+        Scene Alpha: 0.9
+        Show Scene Geometry: true
+      Scene Robot:
+        Robot Alpha: 1
+        Show Robot Collision: false
+        Show Robot Visual: true
+      Value: true
+      Velocity_Scaling_Factor: 0.1
+      Acceleration_Scaling_Factor: 0.1
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: map
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+  Value: true
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 14.0
+      Focal Point:
+        X: 37.0
+        Y: 2.5
+        Z: 0.6
+      Name: Current View
+      Pitch: 0.55
+      Target Frame: <Fixed Frame>
+      Yaw: 5.8
+Window Geometry:
+  Height: 980
+  Hide Left Dock: false
+  Hide Right Dock: false
+  MotionPlanning:
+    collapsed: false
+  Width: 1500

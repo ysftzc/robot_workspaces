@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panther_with_franka">
+  <xacro:arg name="fr3_initial_joint1" default="-1.710"/>
+  <xacro:arg name="fr3_initial_joint2" default="-1.267"/>
+  <xacro:arg name="fr3_initial_joint3" default="0.0"/>
+  <xacro:arg name="fr3_initial_joint4" default="-2.792"/>
+  <xacro:arg name="fr3_initial_joint5" default="0.0"/>
+  <xacro:arg name="fr3_initial_joint6" default="2.800"/>
+  <xacro:arg name="fr3_initial_joint7" default="0.0"/>
+  <xacro:arg name="fr3_initial_finger1" default="0.04"/>
+  <xacro:arg name="fr3_initial_finger2" default="0.04"/>
+  <xacro:arg name="enable_3d_lidar" default="false"/>
+
+  <!-- Panther mobile base -->
+  <xacro:include filename="$(find husarion_ugv_description)/urdf/panther.urdf.xacro"/>
+
+  <!-- Franka FR3 arm.
+       connected_to="" means fr3_link0 is a standalone root;
+       the explicit joint below connects it to mount_link. -->
+  <xacro:include filename="$(find franka_description)/robots/common/franka_robot.xacro"/>
+  <xacro:franka_robot
+    robot_type="fr3"
+    joint_limits="${xacro.load_yaml('$(find franka_description)/robots/fr3/joint_limits.yaml')}"
+    inertials="${xacro.load_yaml('$(find franka_description)/robots/fr3/inertials.yaml')}"
+    kinematics="${xacro.load_yaml('$(find franka_description)/robots/fr3/kinematics.yaml')}"
+    accelerometer_config="${xacro.load_yaml('$(find franka_description)/robots/fr3/accelerometers.yaml')}"
+    dynamics="${xacro.load_yaml('$(find franka_description)/robots/fr3/dynamics.yaml')}"
+    safety_distance="0.03"
+    gazebo="true"
+    ros2_control="false"
+    use_fake_hardware="false"
+    robot_ip="dont-care"
+    hand="true"
+    ee_id="franka_hand"
+    with_sc="false"
+    no_prefix="false"
+    arm_prefix=""
+    connected_to=""/>
+
+  <!-- Local ros2_control block so Gazebo spawns the FR3 already looking at the
+       right-side plant instead of starting folded downward and sweeping through
+       front tomatoes. Keep this in this workspace instead of patching the
+       upstream franka_description xacro. -->
+  <ros2_control name="FrankaHardwareInterface" type="system">
+    <hardware>
+      <param name="version">1.0.0</param>
+      <param name="robot_type">fr3</param>
+      <param name="prefix"></param>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+
+    <xacro:macro name="fr3_gazebo_joint" params="joint_name initial_position velocity_command:=true">
+      <joint name="${joint_name}">
+        <command_interface name="position"/>
+        <xacro:if value="${velocity_command}">
+          <command_interface name="velocity"/>
+        </xacro:if>
+        <state_interface name="position">
+          <param name="initial_value">${initial_position}</param>
+        </state_interface>
+        <state_interface name="velocity"/>
+        <state_interface name="effort"/>
+      </joint>
+    </xacro:macro>
+
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint1" initial_position="$(arg fr3_initial_joint1)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint2" initial_position="$(arg fr3_initial_joint2)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint3" initial_position="$(arg fr3_initial_joint3)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint4" initial_position="$(arg fr3_initial_joint4)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint5" initial_position="$(arg fr3_initial_joint5)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint6" initial_position="$(arg fr3_initial_joint6)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_joint7" initial_position="$(arg fr3_initial_joint7)"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_finger_joint1" initial_position="$(arg fr3_initial_finger1)" velocity_command="false"/>
+    <xacro:fr3_gazebo_joint joint_name="fr3_finger_joint2" initial_position="$(arg fr3_initial_finger2)" velocity_command="false"/>
+
+    <xacro:macro name="fr3_gpio" params="prefix command_interface index">
+      <gpio name="${prefix}">
+        <command_interface name="${command_interface}"/>
+        <param name="index">${index}</param>
+      </gpio>
+    </xacro:macro>
+
+    <xacro:fr3_gpio prefix="vx" command_interface="cartesian_velocity" index="0"/>
+    <xacro:fr3_gpio prefix="vy" command_interface="cartesian_velocity" index="1"/>
+    <xacro:fr3_gpio prefix="vz" command_interface="cartesian_velocity" index="2"/>
+    <xacro:fr3_gpio prefix="wx" command_interface="cartesian_velocity" index="3"/>
+    <xacro:fr3_gpio prefix="wy" command_interface="cartesian_velocity" index="4"/>
+    <xacro:fr3_gpio prefix="wz" command_interface="cartesian_velocity" index="5"/>
+    <xacro:fr3_gpio prefix="0" command_interface="cartesian_pose_command" index="0"/>
+    <xacro:fr3_gpio prefix="1" command_interface="cartesian_pose_command" index="1"/>
+    <xacro:fr3_gpio prefix="2" command_interface="cartesian_pose_command" index="2"/>
+    <xacro:fr3_gpio prefix="3" command_interface="cartesian_pose_command" index="3"/>
+    <xacro:fr3_gpio prefix="4" command_interface="cartesian_pose_command" index="4"/>
+    <xacro:fr3_gpio prefix="5" command_interface="cartesian_pose_command" index="5"/>
+    <xacro:fr3_gpio prefix="6" command_interface="cartesian_pose_command" index="6"/>
+    <xacro:fr3_gpio prefix="7" command_interface="cartesian_pose_command" index="7"/>
+    <xacro:fr3_gpio prefix="8" command_interface="cartesian_pose_command" index="8"/>
+    <xacro:fr3_gpio prefix="9" command_interface="cartesian_pose_command" index="9"/>
+    <xacro:fr3_gpio prefix="10" command_interface="cartesian_pose_command" index="10"/>
+    <xacro:fr3_gpio prefix="11" command_interface="cartesian_pose_command" index="11"/>
+    <xacro:fr3_gpio prefix="12" command_interface="cartesian_pose_command" index="12"/>
+    <xacro:fr3_gpio prefix="13" command_interface="cartesian_pose_command" index="13"/>
+    <xacro:fr3_gpio prefix="14" command_interface="cartesian_pose_command" index="14"/>
+    <xacro:fr3_gpio prefix="15" command_interface="cartesian_pose_command" index="15"/>
+    <xacro:fr3_gpio prefix="joint_3_position" command_interface="elbow_command" index="0"/>
+    <xacro:fr3_gpio prefix="joint_4_sign" command_interface="elbow_command" index="1"/>
+  </ros2_control>
+
+  <!-- Attach fr3_link0 to Panther mount_link -->
+  <joint name="panther_to_franka_joint" type="fixed">
+    <parent link="mount_link"/>
+    <child link="fr3_link0"/>
+    <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- RealSense D435: downward-facing, single sensor pair, 15 fps.
+       Uses panther_camera.xacro (custom) instead of the upstream
+       realsense_d435.xacro which caused a duplicate-topic conflict:
+         Original sensor published to /camera/color/image_raw AND
+         our added sensor also published to /camera/color/image_raw,
+         so two Gz publishers on one topic produced alternating frames
+         and the topic kept dropping and reconnecting in a loop.
+       The custom xacro has ONE sensor with correct downward orientation
+       and 15 fps to prevent Gazebo CPU overload and controller timeouts. -->
+  <xacro:include filename="$(find combined_robot)/urdf/panther_camera.xacro"/>
+  <xacro:panther_camera parent_link="fr3_hand" prefix="fr3_"/>
+
+  <material name="soft_gripper_pad">
+    <color rgba="0.08 0.08 0.08 1.0"/>
+  </material>
+
+  <!-- Wider soft pads for tomato grasping.
+       The stock Franka fingertip contact patch is narrow, which makes
+       round tomatoes easy to roll out in Gazebo. These pads increase the
+       contact face without changing the gripper joints or controller. -->
+  <xacro:macro name="tomato_gripper_pad" params="name parent">
+    <link name="${name}">
+      <visual name="${name}_visual">
+        <geometry>
+          <box size="0.045 0.012 0.030"/>
+        </geometry>
+        <material name="soft_gripper_pad"/>
+      </visual>
+      <collision name="${name}_collision">
+        <geometry>
+          <box size="0.045 0.012 0.030"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.015"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1.305e-6" ixy="0" ixz="0" iyy="3.656e-6" iyz="0" izz="2.711e-6"/>
+      </inertial>
+    </link>
+    <joint name="${name}_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${name}"/>
+      <origin xyz="0 0.00758 0.04525" rpy="0 0 0"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:tomato_gripper_pad name="fr3_leftfinger_tomato_pad" parent="fr3_leftfinger"/>
+  <xacro:tomato_gripper_pad name="fr3_rightfinger_tomato_pad" parent="fr3_rightfinger"/>
+
+  <xacro:macro name="high_grip_tomato_contact" params="reference">
+    <gazebo reference="${reference}">
+      <mu1>1000</mu1>
+      <mu2>1000</mu2>
+      <kp>1000000.0</kp>
+      <kd>100.0</kd>
+      <minDepth>0.002</minDepth>
+      <maxVel>0</maxVel>
+    </gazebo>
+  </xacro:macro>
+
+  <xacro:high_grip_tomato_contact reference="fr3_leftfinger_tomato_pad"/>
+  <xacro:high_grip_tomato_contact reference="fr3_rightfinger_tomato_pad"/>
+  <xacro:high_grip_tomato_contact reference="fr3_leftfinger"/>
+  <xacro:high_grip_tomato_contact reference="fr3_rightfinger"/>
+
+  <!-- Lidar: uses Husarion's built-in LDR06 from components.yaml -->
+
+  <xacro:if value="$(arg enable_3d_lidar)">
+    <link name="demo_3d_lidar_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.045" length="0.055"/>
+        </geometry>
+        <material name="soft_gripper_pad"/>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <cylinder radius="0.045" length="0.055"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.15"/>
+        <inertia ixx="0.00008" ixy="0" ixz="0" iyy="0.00008" iyz="0" izz="0.00012"/>
+      </inertial>
+    </link>
+
+    <joint name="demo_3d_lidar_joint" type="fixed">
+      <parent link="base_link"/>
+      <child link="demo_3d_lidar_link"/>
+      <origin xyz="0.18 0 0.62" rpy="0 0 0"/>
+    </joint>
+
+    <gazebo reference="demo_3d_lidar_link">
+      <sensor name="demo_3d_lidar" type="gpu_lidar">
+        <always_on>1</always_on>
+        <update_rate>5</update_rate>
+        <visualize>false</visualize>
+        <topic>/lidar/points</topic>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>256</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.35</min_angle>
+              <max_angle>0.35</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.15</min>
+            <max>12.0</max>
+            <resolution>0.02</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </ray>
+      </sensor>
+    </gazebo>
+  </xacro:if>
+
+</robot>

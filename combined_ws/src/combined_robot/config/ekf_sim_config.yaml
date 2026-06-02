@@ -1,0 +1,100 @@
+# EKF configuration override for Gazebo simulation.
+# Based on husarion_ugv_localization/config/relative_localization.yaml
+# but with relaxed timeouts for sim time jitter and disabled control prediction.
+
+/**:
+  ekf_filter:
+    ros__parameters:
+      frequency: 50.0
+      # ── CRITICAL FIX: Increased from 0.05 to 0.5 ──
+      # Gazebo sim time can jitter by 100-200ms, causing the EKF to declare
+      # sensors "timed out" and produce odometry jumps. 0.5s gives enough
+      # headroom for sim time inconsistencies.
+      sensor_timeout: 0.5
+      two_d_mode: true
+
+      transform_time_offset: 0.0
+      # ── CRITICAL FIX: Increased from 0.05 to 0.5 ──
+      # TF lookups in sim time need more time to resolve.
+      transform_timeout: 0.5
+
+      map_frame: map
+      odom_frame: odom
+      base_link_frame: base_link
+      world_frame: odom
+      publish_tf: true
+      publish_acceleration: false
+
+      # Wheel odometry: linear velocity X/Y only (NO yaw rate!)
+      # Skid-steer wheel yaw is extremely noisy due to wheel slip during turns.
+      # Yaw rotation is handled exclusively by IMU (imu0) below.
+      odom0: odometry/wheels
+      odom0_config: [false, false, false,
+                     false, false, false,
+                      true,  true, false,
+                     false, false, false,
+                     false, false, false]
+      odom0_queue_size: 3
+      odom0_nodelay: true
+      odom0_differential: false
+      odom0_relative: true
+
+      # IMU: yaw rate only (gyroscope Z)
+      imu0: imu/data
+      imu0_config: [false, false, false,
+                    false, false, false,
+                    false, false, false,
+                    false, false,  true,
+                    false, false, false]
+      imu0_queue_size: 3
+      imu0_nodelay: true
+      imu0_differential: false
+      imu0_relative: true
+      imu0_remove_gravitational_acceleration: false
+
+      # ── CHANGE: Disabled control prediction ──
+      # In simulation, cmd_vel prediction adds unnecessary complexity.
+      # The wheel encoder + IMU fusion alone is sufficient.
+      use_control: false
+
+      predict_to_current_time: true
+
+      # Process noise covariance (same as Husarion original)
+      dynamic_process_noise_covariance: true
+      process_noise_covariance: [1e-4,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0, 1e-4,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0, 1e-4,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0, 3e-3,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0, 3e-3,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0, 3e-3,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-5,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-5,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-5,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-4,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-4,  0.0,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 2e-4,  0.0,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 5e-5,  0.0,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 5e-5,  0.0,
+                                  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 5e-5]
+
+      initial_state: [0.0,  0.0,  0.0,
+                      0.0,  0.0,  0.0,
+                      0.0,  0.0,  0.0,
+                      0.0,  0.0,  0.0,
+                      0.0,  0.0,  0.0]
+
+      initial_estimate_covariance: [1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9,  0.0,
+                                     0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0, 1e-9]

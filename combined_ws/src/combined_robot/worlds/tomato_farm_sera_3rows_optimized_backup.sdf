@@ -1,0 +1,4164 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.10">
+  <world name="tomato_farm">
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system" />
+    <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system" />
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system" />
+    <plugin name="gz::sim::systems::Contact" filename="gz-sim-contact-system" />
+    <plugin name="gz::sim::systems::Imu" filename="gz-sim-imu-system" />
+    <plugin name="gz::sim::systems::Sensors" filename="gz-sim-sensors-system">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <gui fullscreen="false">
+      <plugin name="3D View" filename="GzScene3D">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.5984631152222222 0.5984631152222222 0.5984631152222222</ambient_light>
+        <background_color>0.8984631152222222 0.8984631152222222 0.8984631152222222</background_color>
+        <camera_pose>7 -5 8 0 0.7 1.57</camera_pose>
+        <camera_clip>
+          <near>0.25</near>
+          <far>25000</far>
+        </camera_clip>
+      </plugin>
+      <plugin name="Entity context menu" filename="EntityContextMenuPlugin">
+        <gz-gui>
+          <property key="state" type="string">floating</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name="Interactive view control" filename="InteractiveViewControl">
+        <gz-gui>
+          <property key="resizable" type="bool">false</property>
+          <property key="width" type="double">5</property>
+          <property key="height" type="double">5</property>
+          <property key="state" type="string">floating</property>
+          <property key="showTitleBar" type="bool">false</property>
+        </gz-gui>
+      </plugin>
+      <plugin name="World control" filename="WorldControl">
+        <gz-gui>
+          <title>World control</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="bool" key="resizable">0</property>
+          <property type="double" key="height">72</property>
+          <property type="double" key="width">121</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="left" target="left" />
+            <line own="bottom" target="bottom" />
+          </anchors>
+        </gz-gui>
+        <play_pause>1</play_pause>
+        <step>1</step>
+        <start_paused>0</start_paused>
+      </plugin>
+      <plugin name="World stats" filename="WorldStats">
+        <gz-gui>
+          <title>World stats</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="bool" key="resizable">0</property>
+          <property type="double" key="height">110</property>
+          <property type="double" key="width">290</property>
+          <property type="double" key="z">1</property>
+          <property type="string" key="state">floating</property>
+          <anchors target="3D View">
+            <line own="right" target="right" />
+            <line own="bottom" target="bottom" />
+          </anchors>
+        </gz-gui>
+        <sim_time>1</sim_time>
+        <real_time>1</real_time>
+        <real_time_factor>1</real_time_factor>
+        <iterations>1</iterations>
+      </plugin>
+      <plugin name="Entity tree" filename="EntityTree" />
+    </gui>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>6.0000000000000002e-06 2.3e-05 -4.1999999999999998e-05</magnetic_field>
+    <atmosphere type="adiabatic" />
+    <scene>
+      <grid>false</grid>
+      <ambient>0.400000006 0.400000006 0.400000006 1</ambient>
+      <background>0.699999988 0.699999988 0.699999988 1</background>
+      <shadows>false</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>47.397971057728974</latitude_deg>
+      <longitude_deg>8.5461637398001464</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <physics type="ode">
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+    <model name="physics_ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>200 200</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+            </friction>
+            <bounce />
+            <contact />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="ground_plane">
+      <static>true</static>
+      <pose>37.5 8.5 -0.049000000000000002 0 0 0</pose>
+      <link name="link">
+        <visual name="base_soil">
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>16 18</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.340000004 0.280000001 0.200000003 1</ambient>
+            <diffuse>0.419999987 0.349999994 0.25 1</diffuse>
+            <specular>0.0199999996 0.0199999996 0.0199999996 1</specular>
+          </material>
+        </visual>
+        <visual name="soil_patch_left">
+          <pose>-3.2000000000000002 0 0.001 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.3999999999999999 16</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.239999995 0.319999993 0.200000003 1</ambient>
+            <diffuse>0.300000012 0.400000006 0.25 1</diffuse>
+            <specular>0.00999999978 0.00999999978 0.00999999978 1</specular>
+          </material>
+        </visual>
+        <visual name="soil_patch_right">
+          <pose>3.2000000000000002 0 0.001 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>2.3999999999999999 16</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.25 0.310000002 0.189999998 1</ambient>
+            <diffuse>0.310000002 0.389999986 0.239999995 1</diffuse>
+            <specular>0.00999999978 0.00999999978 0.00999999978 1</specular>
+          </material>
+        </visual>
+        <visual name="walkway">
+          <pose>0 -1 0.002 0 0 0</pose>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>1.6000000000000001 14</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.419999987 0.389999986 0.330000013 1</ambient>
+            <diffuse>0.5 0.469999999 0.400000006 1</diffuse>
+            <specular>0.0149999997 0.0149999997 0.0149999997 1</specular>
+          </material>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="sera_greenhouse">
+      <static>true</static>
+      <pose>38.609999999999999 -0.54000000000000004 -0.070000000000000007 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://sera_greenhouse/meshes/house.glb</uri>
+              <scale>1.3500000000000001 1.3500000000000001 1.3500000000000001</scale>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <mesh>
+              <uri>model://sera_greenhouse/meshes/house.glb</uri>
+              <scale>1.3500000000000001 1.3500000000000001 1.3500000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_B_0">
+      <pose>36.5 4.5 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>0 0 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_0</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_0</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_B_0_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_B_0_1</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_B_0_1</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_B_0_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_B_0_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_B_0_2</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_B_0_2</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_B_0_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_B_0_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_B_0_3</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_B_0_3</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_B_0_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_B_0_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_B_0_4</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_B_0_4</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_B_0_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe2_B_0_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe2_B_0_5</detach_topic>
+        <attach_topic>/attach/tomato_ripe2_B_0_5</attach_topic>
+        <output_topic>/detach_state/tomato_ripe2_B_0_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_B_0_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_B_0_6</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_B_0_6</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_B_0_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten3_B_0_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten3_B_0_7</detach_topic>
+        <attach_topic>/attach/tomato_rotten3_B_0_7</attach_topic>
+        <output_topic>/detach_state/tomato_rotten3_B_0_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_B_0_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_B_0_8</detach_topic>
+        <attach_topic>/attach/tomato_rotten_B_0_8</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_B_0_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_B_2">
+      <pose>36.5 6.0999999999999996 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>5.3290705182007514e-15 -7.1054273576010019e-15 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_B_2_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_B_2_0</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_B_2_0</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_B_2_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_B_2_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_B_2_1</detach_topic>
+        <attach_topic>/attach/tomato_diseased_B_2_1</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_B_2_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_B_2_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_B_2_2</detach_topic>
+        <attach_topic>/attach/tomato_rotten_B_2_2</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_B_2_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe2_B_2_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe2_B_2_3</detach_topic>
+        <attach_topic>/attach/tomato_ripe2_B_2_3</attach_topic>
+        <output_topic>/detach_state/tomato_ripe2_B_2_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_B_2_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_B_2_4</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_B_2_4</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_B_2_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_B_2_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_B_2_5</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_B_2_5</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_B_2_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe2_B_2_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe2_B_2_6</detach_topic>
+        <attach_topic>/attach/tomato_ripe2_B_2_6</attach_topic>
+        <output_topic>/detach_state/tomato_ripe2_B_2_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_2_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_2_7</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_2_7</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_2_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_B_2_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_B_2_8</detach_topic>
+        <attach_topic>/attach/tomato_diseased_B_2_8</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_B_2_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_B_4">
+      <pose>36.5 7.7000000000000002 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>0 0 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_4_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_4_0</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_4_0</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_4_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_4_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_4_1</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_4_1</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_4_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_B_4_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_B_4_2</detach_topic>
+        <attach_topic>/attach/tomato_rotten_B_4_2</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_B_4_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_B_4_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_B_4_3</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_B_4_3</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_B_4_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten3_B_4_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten3_B_4_4</detach_topic>
+        <attach_topic>/attach/tomato_rotten3_B_4_4</attach_topic>
+        <output_topic>/detach_state/tomato_rotten3_B_4_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_B_4_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_B_4_5</detach_topic>
+        <attach_topic>/attach/tomato_rotten_B_4_5</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_B_4_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_B_4_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_B_4_6</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_B_4_6</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_B_4_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_4_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_4_7</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_4_7</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_4_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_4_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_4_8</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_4_8</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_4_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_C_0">
+      <pose>38.5 4.5 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>-3.5527136788005009e-15 7.1054273576010019e-15 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_C_0_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_C_0_0</detach_topic>
+        <attach_topic>/attach/tomato_rotten_C_0_0</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_C_0_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_C_0_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_C_0_1</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_C_0_1</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_C_0_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten3_C_0_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten3_C_0_2</detach_topic>
+        <attach_topic>/attach/tomato_rotten3_C_0_2</attach_topic>
+        <output_topic>/detach_state/tomato_rotten3_C_0_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten3_C_0_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten3_C_0_3</detach_topic>
+        <attach_topic>/attach/tomato_rotten3_C_0_3</attach_topic>
+        <output_topic>/detach_state/tomato_rotten3_C_0_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_C_0_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_C_0_4</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_C_0_4</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_C_0_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_C_0_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_C_0_5</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_C_0_5</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_C_0_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_C_0_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_C_0_6</detach_topic>
+        <attach_topic>/attach/tomato_diseased_C_0_6</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_C_0_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_C_0_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_C_0_7</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_C_0_7</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_C_0_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_C_0_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_C_0_8</detach_topic>
+        <attach_topic>/attach/tomato_unripe_C_0_8</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_C_0_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_C_2">
+      <pose>38.5 6.0999999999999996 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>3.5527136788005009e-15 0 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_C_2_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_C_2_0</detach_topic>
+        <attach_topic>/attach/tomato_rotten_C_2_0</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_C_2_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_C_2_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_C_2_1</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_C_2_1</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_C_2_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten3_C_2_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten3_C_2_2</detach_topic>
+        <attach_topic>/attach/tomato_rotten3_C_2_2</attach_topic>
+        <output_topic>/detach_state/tomato_rotten3_C_2_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_C_2_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_C_2_3</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_C_2_3</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_C_2_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe2_C_2_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe2_C_2_4</detach_topic>
+        <attach_topic>/attach/tomato_ripe2_C_2_4</attach_topic>
+        <output_topic>/detach_state/tomato_ripe2_C_2_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_C_2_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_C_2_5</detach_topic>
+        <attach_topic>/attach/tomato_ripe_C_2_5</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_C_2_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_C_2_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_C_2_6</detach_topic>
+        <attach_topic>/attach/tomato_rotten_C_2_6</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_C_2_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_C_2_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_C_2_7</detach_topic>
+        <attach_topic>/attach/tomato_diseased_C_2_7</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_C_2_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_C_2_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_C_2_8</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_C_2_8</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_C_2_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="plant_C_4">
+      <pose>38.5 7.7000000000000002 -0.42499999999999999 0 0 1.5708000000000006</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.79684500000000003 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <link name="yapraklar">
+        <pose>3.5527136788005009e-15 0 0.79684500000000003 0 0 -3.3306690738754701e-16</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+        <pose>0 0 0 0 0 0</pose>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_C_4_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_C_4_0</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_C_4_0</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_C_4_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten4_C_4_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten4_C_4_1</detach_topic>
+        <attach_topic>/attach/tomato_rotten4_C_4_1</attach_topic>
+        <output_topic>/detach_state/tomato_rotten4_C_4_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe2_C_4_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe2_C_4_2</detach_topic>
+        <attach_topic>/attach/tomato_ripe2_C_4_2</attach_topic>
+        <output_topic>/detach_state/tomato_ripe2_C_4_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_C_4_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_C_4_3</detach_topic>
+        <attach_topic>/attach/tomato_unripe_C_4_3</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_C_4_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_C_4_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_C_4_4</detach_topic>
+        <attach_topic>/attach/tomato_diseased_C_4_4</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_C_4_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_C_4_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_C_4_5</detach_topic>
+        <attach_topic>/attach/tomato_diseased_C_4_5</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_C_4_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten5_C_4_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten5_C_4_6</detach_topic>
+        <attach_topic>/attach/tomato_rotten5_C_4_6</attach_topic>
+        <output_topic>/detach_state/tomato_rotten5_C_4_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_C_4_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_C_4_7</detach_topic>
+        <attach_topic>/attach/tomato_unripe_C_4_7</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_C_4_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten2_C_4_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten2_C_4_8</detach_topic>
+        <attach_topic>/attach/tomato_rotten2_C_4_8</attach_topic>
+        <output_topic>/detach_state/tomato_rotten2_C_4_8</output_topic>
+      </plugin>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe_B_0_0">
+      <pose>36.484077453613274 4.2797508239746094 0.70136880874633833 -0.18799999981568177 -0.1239999869721085 -1.2962899084815307</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.4299999999999999 1.4299999999999999 1.4299999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_B_0_1">
+      <pose>36.275516510009759 4.0769290924072292 0.63875538110733066 0.015999997915964494 -0.10299999976283966 0.94930002046035544</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.76 1.76 1.76</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_B_0_2">
+      <pose>36.402870178222656 4.2974944114685014 1.0843796730041511 -0.11799999771593785 -0.014999999346729173 -0.4182849925732548</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.3999999999999999 1.3999999999999999 1.3999999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_B_0_3">
+      <pose>36.406272888183594 4.1932539939880371 0.70814412832260232 0.20999999612634054 -0.074999998652183444 2.8717999923594681</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.8999999999999999 1.8999999999999999 1.8999999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_B_0_4">
+      <pose>36.488441467285156 4.4908480644226074 0.78049367666244496 -0.12999999511638907 0.17199998824714338 3.0534000031699877</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.5700000000000001 1.5700000000000001 1.5700000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe2_B_0_5">
+      <pose>36.635387420654297 4.773695468902587 0.67564737796783469 0.18000000262847707 -0.035000000430506537 0.41699999853301478</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe2/meshes/tomatoripe2.glb</uri>
+              <scale>1.8100000000000001 1.8100000000000001 1.8100000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_B_0_6">
+      <pose>36.515758514404297 4.5745501518249512 0.79024839401245117 -0.13100000079545904 0.060000001000786472 -2.8065899831983261</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.5 1.5 1.5</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten3_B_0_7">
+      <pose>36.589809417724624 4.6433987617492694 0.73363161087036133 0.14800003417411939 0.027000006310069234 -0.0074853110015837988</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten3/meshes/tomatorotten3.glb</uri>
+              <scale>1.8899999999999999 1.8899999999999999 1.8899999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_B_0_8">
+      <pose>36.301494598388686 4.2397608757019043 1.0482691526412966 -0.18499999287810218 0.04700000105102748 2.9042999997464212</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.8200000000000001 1.8200000000000001 1.8200000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_B_2_0">
+      <pose>36.513336181640618 6.1159296035766619 0.77961140871047963 0.065999994041730431 0.15099999987948723 1.360799924509021</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.95 1.95 1.95</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_B_2_1">
+      <pose>36.569587707519545 6.2400269508361861 0.73146170377731068 -0.0059999991497985353 -0.15099999625760821 -2.737290001925571</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>2.0099999999999998 2.0099999999999998 2.0099999999999998</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_B_2_2">
+      <pose>36.58843994140625 5.8535742759704581 0.85063624382019065 -0.13200000456898839 -0.13500000151655403 2.2089000208318401</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.4099999999999999 1.4099999999999999 1.4099999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe2_B_2_3">
+      <pose>36.586711883544922 6.392653465270997 0.70910227298736561 0.086000000746074182 0.079000006583587745 -1.3712900771022558</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe2/meshes/tomatoripe2.glb</uri>
+              <scale>1.6499999999999999 1.6499999999999999 1.6499999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_B_2_4">
+      <pose>36.487682342529297 5.8912773132324201 0.70436096191406317 0.18699999851683347 0.14100000082022926 -2.1820900085602424</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.78 1.78 1.78</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_B_2_5">
+      <pose>36.637336730957038 5.7382698059082058 0.87526714801788286 -0.19999999856267822 -0.083999997663828513 0.37209999086766427</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.6499999999999999 1.6499999999999999 1.6499999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe2_B_2_6">
+      <pose>36.389297485351562 5.8236708641052255 0.65706717967987061 0.082999998792090274 -0.024999998254657509 1.7106999801734066</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe2/meshes/tomatoripe2.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_B_2_7">
+      <pose>36.27790451049804 5.6514296531677202 0.64161342382430997 0.12900000348146848 0.094000002114262751 0.5058999994630482</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.9099999999999999 1.9099999999999999 1.9099999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_B_2_8">
+      <pose>36.619487762451158 6.3245558738708496 0.67604702711105391 -0.038999995384736835 -0.098000024083663109 -1.6168902668299183</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.6699999999999999 1.6699999999999999 1.6699999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_B_4_0">
+      <pose>36.254444122314453 7.2472333908081072 0.60803174972534235 0.1120000007957766 -0.001999998782912695 -0.64658499771976552</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.4099999999999999 1.4099999999999999 1.4099999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe_B_4_1">
+      <pose>36.819320678710938 7.7689862251281694 1.1624066829681408 0.076000002496137906 0.10200000194133835 2.316999985973029</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.6000000000000001 1.6000000000000001 1.6000000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_B_4_2">
+      <pose>36.579357147216797 7.4248437881469735 0.82687747478485207 0.12999999889413466 0.16299999729535827 -2.0370899924559094</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.46 1.46 1.46</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_B_4_3">
+      <pose>36.645694732666016 8.0263471603393555 0.60579973459243763 -0.019999991538889754 0.074999999870769496 -1.9961898423122306</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.8700000000000001 1.8700000000000001 1.8700000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten3_B_4_4">
+      <pose>36.496116638183608 7.7472672462463423 0.76713567972183083 0.12199999958706517 0.091000003470016522 0.73619999578774009</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten3/meshes/tomatorotten3.glb</uri>
+              <scale>1.8100000000000001 1.8100000000000001 1.8100000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_B_4_5">
+      <pose>36.407211303710952 7.3643631935119602 0.70127093791961737 0.055999998886810558 -0.087000001318211159 2.6986999866581654</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.46 1.46 1.46</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_B_4_6">
+      <pose>36.578147888183587 7.8730840682983425 0.73769152164459229 -0.15100000179154494 -0.0059999863570195057 -2.0529898727648739</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.8600000000000001 1.8600000000000001 1.8600000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_B_4_7">
+      <pose>36.641082763671882 7.746515274047856 1.1740949153900155 -0.090000001733495802 -0.17299999734175042 -2.3906899801444377</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.54 1.54 1.54</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_B_4_8">
+      <pose>36.63999938964843 7.29742431640625 0.77872538566589455 -0.080999998130214898 0.073999997982369739 -1.6861900053643342</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.8999999999999999 1.8999999999999999 1.8999999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_C_0_0">
+      <pose>38.238681793212898 4.0112667083740243 0.61089617013931219 0.17100004707842462 -0.10000000549034403 -1.4617901988122284</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.3899999999999999 1.3899999999999999 1.3899999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_C_0_1">
+      <pose>38.608486175537109 4.7590379714965847 0.71715819835662864 0.030000004037239049 -0.11300000187217737 1.4279999602326023</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.98 1.98 1.98</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten3_C_0_2">
+      <pose>38.498661041259773 4.5066938400268546 0.78758299350738559 0.010999999532717726 -0.11400000187076069 -0.95978498362082387</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten3/meshes/tomatorotten3.glb</uri>
+              <scale>1.45 1.45 1.45</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten3_C_0_3">
+      <pose>38.558403015136712 4.3379259109497044 0.89873647689819369 -0.079999997627760125 -0.14600001033421747 -1.2216900742207319</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten3/meshes/tomatorotten3.glb</uri>
+              <scale>1.8899999999999999 1.8899999999999999 1.8899999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_C_0_4">
+      <pose>38.469066619873047 4.5545530319213876 1.009397625923157 -0.20600000422087122 -0.074999998822769018 -0.76898497883935879</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.54 1.54 1.54</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_C_0_5">
+      <pose>38.40241622924804 4.1617136001586932 0.71089178323745716 0.17199999601650728 -0.15699999936152179 2.4114000322663371</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.6599999999999999 1.6599999999999999 1.6599999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_C_0_6">
+      <pose>38.371227264404297 4.2529706954956064 1.0785026550292964 -0.17300000831455878 -0.019000003011719262 -0.42848500825421837</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.95 1.95 1.95</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_C_0_7">
+      <pose>38.490200042724624 4.3239102363586435 0.67623400688171476 0.066999997181860962 0.096000000958887513 -2.9983900083039954</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.5700000000000001 1.5700000000000001 1.5700000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_C_0_8">
+      <pose>38.549888610839837 4.6224389076232892 0.75925648212432906 -0.071000000613838488 0.098999999783544956 2.6157999867668864</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.75 1.75 1.75</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_C_2_0">
+      <pose>38.63990783691407 6.4478096961975107 0.58887481689453147 0.15400002258933915 0.14300003722475649 -0.24168506439482595</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.9099999999999999 1.9099999999999999 1.9099999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_C_2_1">
+      <pose>38.603790283203125 6.388035774230957 0.71500879526138295 -0.016000000946034442 0.028000001044855619 -2.759990004241001</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.97 1.97 1.97</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten3_C_2_2">
+      <pose>38.50068283081054 6.0798478126525879 0.76160806417465232 -0.045000000579773325 -0.03099999598163037 -1.7265898741601067</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten3/meshes/tomatorotten3.glb</uri>
+              <scale>1.6000000000000001 1.6000000000000001 1.6000000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_C_2_3">
+      <pose>38.587245941162124 5.8790402412414586 0.92638456821441661 -0.1000000056025014 -0.00099999962761962587 -2.8319899893016243</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.6799999999999999 1.6799999999999999 1.6799999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe2_C_2_4">
+      <pose>38.379875183105483 6.2680368423461905 1.0466265678405764 -0.10600000443506268 0.012000000162033222 3.0911000007411444</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe2/meshes/tomatoripe2.glb</uri>
+              <scale>1.4399999999999999 1.4399999999999999 1.4399999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe_C_2_5">
+      <pose>38.330230712890625 5.687641143798829 0.71427315473556441 -0.21200000022656895 -0.0060000374090156553 -1.4784900568751895</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.77 1.77 1.77</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten_C_2_6">
+      <pose>38.386211395263665 5.76954889297485 0.69552713632583563 0.13399999599681367 -0.091000001114331555 0.66269999995431494</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.54 1.54 1.54</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_C_2_7">
+      <pose>38.451190948486335 5.8371133804321298 0.72407501935958862 0.19300000058681274 0.025999999892067562 3.139200000174621</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.74 1.74 1.74</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_C_2_8">
+      <pose>38.544101715087898 6.2189002037048358 0.77302902936935403 -0.10300001837438987 0.051000008153927238 -0.37478505624107133</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.5900000000000001 1.5900000000000001 1.5900000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_C_4_0">
+      <pose>38.56290435791017 7.5443816184997532 0.91722804307937666 -0.15800002530618013 -0.08500002388812665 -0.35108508147271128</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.55 1.55 1.55</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten4_C_4_1">
+      <pose>38.462894439697266 7.762725830078125 1.0202744007110582 -0.16499999966267814 -0.078999997864964339 2.117300026006149</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten4/meshes/tomatorotten4.glb</uri>
+              <scale>1.8700000000000001 1.8700000000000001 1.8700000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_ripe2_C_4_2">
+      <pose>38.629749298095703 8.0217285156250036 0.65868884325027355 -0.073000003290550938 -0.1370000059550387 -2.7020899919621089</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe2/meshes/tomatoripe2.glb</uri>
+              <scale>1.6399999999999999 1.6399999999999999 1.6399999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_C_4_3">
+      <pose>38.619926452636726 7.915454387664794 0.72178304195404086 -0.10100000393918017 -0.14499999763815818 0.97180004144834897</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.8799999999999999 1.8799999999999999 1.8799999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_C_4_4">
+      <pose>38.430694580078125 7.4116725921630904 0.70326554775238104 -0.080999995231315181 0.043000001650181828 -0.64488496761346181</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.77 1.77 1.77</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_diseased_C_4_5">
+      <pose>38.632888793945312 7.2793841361999521 0.79927325248718184 0.21800000992673385 -0.1130000084795057 0.59900003481898978</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.72 1.72 1.72</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten5_C_4_6">
+      <pose>38.494041442871101 7.5132021903991708 0.67733186483383201 0.0020000016047141736 -0.10800000721078902 2.5582999877285681</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten5/meshes/tomatorotten5.glb</uri>
+              <scale>1.8700000000000001 1.8700000000000001 1.8700000000000001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_unripe_C_4_7">
+      <pose>38.284561157226562 7.2628884315490678 0.66137254238128562 -0.055000002281457107 -0.17399999457815865 2.480300034437577</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.8799999999999999 1.8799999999999999 1.8799999999999999</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="tomato_rotten2_C_4_8">
+      <pose>38.497909545898445 7.7079329490661621 0.79602980613708518 -0.2189999952901153 0.09199999464632877 -2.3059900265312177</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.080000000000000002</mass>
+          <inertia>
+            <ixx>1.0000000000000001e-05</ixx>
+            <iyy>1.0000000000000001e-05</iyy>
+            <izz>1.0000000000000001e-05</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+          <pose>0 0 0 0 0 0</pose>
+        </inertial>
+        <velocity_decay>
+          <linear>0.050000000000000003</linear>
+          <angular>1.5</angular>
+        </velocity_decay>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten2/meshes/tomatorotten2.glb</uri>
+              <scale>1.51 1.51 1.51</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.032000000000000001</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>10</mu>
+                <mu2>10</mu2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <kp>1000000</kp>
+                <kd>10</kd>
+              </ode>
+            </contact>
+            <bounce />
+          </surface>
+        </collision>
+        <pose>0 0 0 0 0 0</pose>
+        <enable_wind>false</enable_wind>
+      </link>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="lamp_921531">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.10000000000000001</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode />
+            </friction>
+            <bounce />
+            <contact />
+          </surface>
+        </collision>
+        <visual name="lamp">
+          <geometry>
+            <mesh>
+              <uri>model://lamp_921531/meshes/lamp.dae</uri>
+              <scale>0.0050000000000000001 0.0050000000000000001 0.0050000000000000001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <light name="lightComponent" type="point">
+          <pose>0 0 0 0 0 0</pose>
+          <cast_shadows>true</cast_shadows>
+          <intensity>1</intensity>
+          <direction>0 0 -1</direction>
+          <diffuse>0.370000005 0.202999994 0.513000011 1</diffuse>
+          <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          <attenuation>
+            <range>7</range>
+            <linear>0.069999999999999993</linear>
+            <constant>0.69999999999999996</constant>
+            <quadratic>0.0069999999999999993</quadratic>
+          </attenuation>
+          <spot>
+            <inner_angle>0</inner_angle>
+            <outer_angle>0</outer_angle>
+            <falloff>0</falloff>
+          </spot>
+        </light>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>4.5 -0.5 2.6000000000000001 -0.70710631209293529 0.70710725027860422 -2.1905255372856873e-16</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <model name="lamp_276172">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.10000000000000001 0.10000000000000001 0.10000000000000001</size>
+            </box>
+          </geometry>
+          <surface>
+            <friction>
+              <ode />
+            </friction>
+            <bounce />
+            <contact />
+          </surface>
+        </collision>
+        <visual name="lamp">
+          <geometry>
+            <mesh>
+              <uri>model://lamp_276172/meshes/lamp.dae</uri>
+              <scale>0.0050000000000000001 0.0050000000000000001 0.0050000000000000001</scale>
+            </mesh>
+          </geometry>
+          <material>
+            <diffuse>1 1 1 1</diffuse>
+          </material>
+        </visual>
+        <light name="lightComponent" type="point">
+          <pose>0 0 0 0 0 0</pose>
+          <cast_shadows>true</cast_shadows>
+          <intensity>1</intensity>
+          <direction>0 0 -1</direction>
+          <diffuse>0.370000005 0.202999994 0.513000011 1</diffuse>
+          <specular>0.100000001 0.100000001 0.100000001 1</specular>
+          <attenuation>
+            <range>7</range>
+            <linear>0.069999999999999993</linear>
+            <constant>0.69999999999999996</constant>
+            <quadratic>0.0069999999999999993</quadratic>
+          </attenuation>
+          <spot>
+            <inner_angle>0</inner_angle>
+            <outer_angle>0</outer_angle>
+            <falloff>0</falloff>
+          </spot>
+        </light>
+        <pose>0 0 0 0 0 0</pose>
+        <inertial>
+          <pose>0 0 0 0 0 0</pose>
+          <mass>1</mass>
+          <inertia>
+            <ixx>1</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>1</iyy>
+            <iyz>0</iyz>
+            <izz>1</izz>
+          </inertia>
+        </inertial>
+        <enable_wind>false</enable_wind>
+      </link>
+      <pose>6.5 -0.5 2.6000000000000001 -0.70710631209293529 0.70710725027860422 -2.1905255372856873e-16</pose>
+      <self_collide>false</self_collide>
+    </model>
+    <light name="sunUTC" type="directional">
+      <pose>0 0 500 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>0.001 0.625 -0.78000000000000003</direction>
+      <diffuse>0.903999984 0.903999984 0.903999984 1</diffuse>
+      <specular>0.270999998 0.270999998 0.270999998 1</specular>
+      <attenuation>
+        <range>2000</range>
+        <linear>0</linear>
+        <constant>1</constant>
+        <quadratic>0</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

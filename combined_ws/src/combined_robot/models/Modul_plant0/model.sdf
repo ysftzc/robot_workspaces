@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="Modul_plant0">
+    <static>true</static>
+    <link name="fide_govdesi">
+      <pose>0 0 0.796845 0 0 0</pose>
+      <visual name="fide_vis">
+        <geometry>
+          <mesh>
+            <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name="yapraklar">
+      <pose>0 0 0.796845 0 0 0</pose>
+      <visual name="yaprak_vis">
+        <geometry>
+          <mesh>
+            <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+            <scale>2 2 2</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="fide_to_yapraklar" type="fixed">
+      <parent>fide_govdesi</parent>
+      <child>yapraklar</child>
+    </joint>
+  </model>
+</sdf>

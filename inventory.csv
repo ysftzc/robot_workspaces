@@ -1,0 +1,2 @@
+component_id,category,name,value,quantity,low_stock_threshold,date_added,power_rating,voltage_rating,cap_type,current_rating,forward_voltage,max_current,color,interface,pin_count,gender,transistor_type,package
+RES-0001,Resistor,resistor,100n ohm,9,3,2026-05-03T13:27:39,9W,,,,,,,,,,,

@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.9">
+  <world name="single_plant_tomato_test">
+    <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system" />
+    <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system" />
+    <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system" />
+    <plugin name="gz::sim::systems::Contact" filename="gz-sim-contact-system" />
+
+    <gui fullscreen="false">
+      <plugin name="3D View" filename="GzScene3D">
+        <gz-gui>
+          <title>3D View</title>
+          <property type="bool" key="showTitleBar">0</property>
+          <property type="string" key="state">docked</property>
+        </gz-gui>
+        <engine>ogre2</engine>
+        <scene>scene</scene>
+        <ambient_light>0.6 0.6 0.6</ambient_light>
+        <background_color>0.9 0.9 0.9</background_color>
+        <camera_pose>2.4 -3.0 2.2 0 0.45 2.35</camera_pose>
+      </plugin>
+      <plugin name="World control" filename="WorldControl" />
+      <plugin name="Entity tree" filename="EntityTree" />
+    </gui>
+
+    <gravity>0 0 -9.8</gravity>
+    <scene>
+      <grid>true</grid>
+      <ambient>0.5 0.5 0.5 1</ambient>
+      <background>0.8 0.8 0.8 1</background>
+      <shadows>false</shadows>
+    </scene>
+
+    <light name="sun" type="directional">
+      <cast_shadows>false</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.9 0.9 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.2 -1</direction>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>8 8</size></plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane><normal>0 0 1</normal><size>8 8</size></plane>
+          </geometry>
+          <material>
+            <ambient>0.55 0.50 0.42 1</ambient>
+            <diffuse>0.55 0.50 0.42 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+<model name="plant_B_0">
+      <pose>0 0 -0.425 0 0 1.5708</pose>
+      <static>true</static>
+      <link name="fide_govdesi">
+        <pose>0 0 0.796845 0 0 0</pose>
+        <visual name="fide_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_base.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <link name="yapraklar">
+        <pose>0 0 0.796845 0 0 0</pose>
+        <visual name="yaprak_vis">
+          <geometry>
+            <mesh>
+              <uri>model://Modul_plant0/meshes/plant0_leaves.glb</uri>
+              <scale>2 2 2</scale>
+            </mesh>
+          </geometry>
+        </visual>
+      </link>
+      <joint name="fide_to_yapraklar" type="fixed">
+        <parent>fide_govdesi</parent>
+        <child>yapraklar</child>
+      </joint>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_0</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_0</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_0</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_0</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_1</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_1</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_1</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_1</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_0_2</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_0_2</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_0_2</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_0_2</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_3</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_3</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_3</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_3</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_rotten_B_0_4</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_rotten_B_0_4</detach_topic>
+        <attach_topic>/attach/tomato_rotten_B_0_4</attach_topic>
+        <output_topic>/detach_state/tomato_rotten_B_0_4</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_5</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_5</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_5</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_5</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_diseased_B_0_6</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_diseased_B_0_6</detach_topic>
+        <attach_topic>/attach/tomato_diseased_B_0_6</attach_topic>
+        <output_topic>/detach_state/tomato_diseased_B_0_6</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_ripe_B_0_7</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_ripe_B_0_7</detach_topic>
+        <attach_topic>/attach/tomato_ripe_B_0_7</attach_topic>
+        <output_topic>/detach_state/tomato_ripe_B_0_7</output_topic>
+      </plugin>
+      <plugin filename="gz-sim-detachable-joint-system" name="gz::sim::systems::DetachableJoint">
+        <parent_link>yapraklar</parent_link>
+        <child_model>tomato_unripe_B_0_8</child_model>
+        <child_link>link</child_link>
+        <detach_topic>/detach/tomato_unripe_B_0_8</detach_topic>
+        <attach_topic>/attach/tomato_unripe_B_0_8</attach_topic>
+        <output_topic>/detach_state/tomato_unripe_B_0_8</output_topic>
+      </plugin>
+    </model>
+
+<model name="tomato_ripe_B_0_0">
+      <pose>-0.212 -0.172 0.875 0 0 1.5708</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_ripe_B_0_1">
+      <pose>-0.012 -0.192 1.055 0 0 1.9408</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_unripe_B_0_2">
+      <pose>0.178 -0.132 1.225 0 0 2.3108</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_ripe_B_0_3">
+      <pose>-0.252 -0.012 1.105 0 0 2.6808</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_rotten_B_0_4">
+      <pose>-0.042 0.008 0.955 0 0 3.0508</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_rotten/meshes/tomatorotten.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_ripe_B_0_5">
+      <pose>0.208 0.028 1.315 0 0 3.4208</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_diseased_B_0_6">
+      <pose>-0.192 0.158 1.375 0 0 3.7908</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_diseased/meshes/tomatodiseased.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_ripe_B_0_7">
+      <pose>0.048 0.168 1.215 0 0 4.1608</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_ripe/meshes/tomatoripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+<model name="tomato_unripe_B_0_8">
+      <pose>0.228 0.138 1.055 0 0 4.5308</pose>
+      <static>false</static>
+      <link name="link">
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>0.00001</ixx><iyy>0.00001</iyy><izz>0.00001</izz>
+            <ixy>0</ixy><ixz>0</ixz><iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://tomato_unripe/meshes/tomatounripe.glb</uri>
+              <scale>1.50 1.50 1.50</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <sphere><radius>0.0375</radius></sphere>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <marker id="arrow-blue" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M2,2 L13,7 L2,12 Z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M2,2 L13,7 L2,12 Z" fill="#16a34a"/>
+    </marker>
+    <filter id="shadow" x="-12%" y="-16%" width="124%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.14"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .frame { fill: #ffffff; stroke: #e2e8f0; stroke-width: 2; }
+      .panel { fill: #ffffff; stroke: #dbe4ee; stroke-width: 2.2; filter: url(#shadow); }
+      .panelTitle { font-family: DejaVu Sans, Arial, sans-serif; font-weight: 800; font-size: 32px; fill: #0f172a; }
+      .sub { font-family: DejaVu Sans, Arial, sans-serif; font-size: 21px; fill: #475569; }
+      .label { font-family: DejaVu Sans, Arial, sans-serif; font-size: 21px; font-weight: 700; fill: #1f2937; }
+      .small { font-family: DejaVu Sans, Arial, sans-serif; font-size: 17px; fill: #475569; }
+      .tiny { font-family: DejaVu Sans, Arial, sans-serif; font-size: 15px; fill: #64748b; }
+      .poseText { font-family: DejaVu Sans, Arial, sans-serif; font-size: 18px; font-weight: 800; fill: white; }
+      .fovB { fill: #3b82f6; fill-opacity: 0.15; stroke: #2563eb; stroke-opacity: 0.55; stroke-width: 2; }
+      .fovC { fill: #16a34a; fill-opacity: 0.15; stroke: #16a34a; stroke-opacity: 0.55; stroke-width: 2; }
+      .arcB { fill: none; stroke: #2563eb; stroke-width: 4; stroke-dasharray: 10 10; }
+      .arcC { fill: none; stroke: #16a34a; stroke-width: 4; stroke-dasharray: 10 10; }
+      .robot { fill: #e5e7eb; stroke: #64748b; stroke-width: 3; }
+      .plantStem { stroke: #3f8f36; stroke-width: 13; stroke-linecap: round; }
+      .leaf { fill: #3f7f39; opacity: 0.86; }
+      .tomato { fill: #dc2626; stroke: #991b1b; stroke-width: 2; }
+      .pick { fill: #f97316; stroke: #c2410c; stroke-width: 3; }
+      .basketGood { fill: #dcfce7; stroke: #22c55e; stroke-width: 2; }
+      .basketBad { fill: #fee2e2; stroke: #ef4444; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1920" height="1080"/>
+  <rect class="frame" x="58" y="52" width="1804" height="976" rx="34"/>
+
+  <!-- Left panel: B row -->
+  <g transform="translate(110,120)">
+    <rect class="panel" x="0" y="0" width="800" height="800" rx="32"/>
+    <text x="44" y="66" class="panelTitle">B-row scan poses</text>
+    <text x="44" y="102" class="sub">harvest_b_scan_1 ... harvest_b_scan_6</text>
+
+    <!-- aisle and robot base -->
+    <rect x="104" y="642" width="592" height="80" rx="28" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="500" y="592" width="178" height="36" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+    <text x="518" y="616" class="tiny">Panther base + FR3</text>
+    <rect class="robot" x="326" y="600" width="148" height="88" rx="20"/>
+    <circle cx="344" cy="704" r="28" fill="#334155"/>
+    <circle cx="456" cy="704" r="28" fill="#334155"/>
+    <circle cx="344" cy="584" r="28" fill="#334155"/>
+    <circle cx="456" cy="584" r="28" fill="#334155"/>
+
+    <!-- plant -->
+    <line class="plantStem" x1="400" y1="250" x2="400" y2="520"/>
+    <ellipse class="leaf" cx="355" cy="316" rx="60" ry="20" transform="rotate(-28 355 316)"/>
+    <ellipse class="leaf" cx="448" cy="348" rx="64" ry="22" transform="rotate(22 448 348)"/>
+    <ellipse class="leaf" cx="360" cy="435" rx="72" ry="22" transform="rotate(22 360 435)"/>
+    <ellipse class="leaf" cx="456" cy="456" rx="72" ry="22" transform="rotate(-22 456 456)"/>
+    <circle class="tomato" cx="342" cy="384" r="18"/>
+    <circle class="tomato" cx="460" cy="400" r="20"/>
+    <circle class="tomato" cx="370" cy="496" r="17"/>
+    <circle class="tomato" cx="438" cy="506" r="18"/>
+    <text x="360" y="232" class="label">plant</text>
+
+    <!-- scan arc -->
+    <path class="arcB" d="M208 520 C172 360, 242 208, 400 176 C558 208, 628 360, 592 520"/>
+
+    <!-- FOV cones to plant -->
+    <polygon class="fovB" points="210,510 382,378 418,378"/>
+    <polygon class="fovB" points="236,344 372,360 420,382"/>
+    <polygon class="fovB" points="312,218 386,352 414,386"/>
+    <polygon class="fovB" points="488,218 386,386 414,352"/>
+    <polygon class="fovB" points="564,344 380,382 428,360"/>
+    <polygon class="fovB" points="590,510 382,378 418,378"/>
+
+    <!-- scan poses -->
+    <circle cx="210" cy="510" r="26" fill="#2563eb"/><text x="200" y="517" class="poseText">S1</text>
+    <circle cx="236" cy="344" r="26" fill="#2563eb"/><text x="226" y="351" class="poseText">S2</text>
+    <circle cx="312" cy="218" r="26" fill="#2563eb"/><text x="302" y="225" class="poseText">S3</text>
+    <circle cx="488" cy="218" r="26" fill="#2563eb"/><text x="478" y="225" class="poseText">S4</text>
+    <circle cx="564" cy="344" r="26" fill="#2563eb"/><text x="554" y="351" class="poseText">S5</text>
+    <circle cx="590" cy="510" r="26" fill="#2563eb"/><text x="580" y="517" class="poseText">S6</text>
+
+    <!-- pick pose -->
+    <circle class="pick" cx="400" cy="560" r="28"/>
+    <text x="387" y="568" class="poseText">P</text>
+    <path d="M400 560 L400 455" fill="none" stroke="#f97316" stroke-width="4" marker-end="url(#arrow-blue)"/>
+
+    <rect class="basketGood" x="52" y="724" width="290" height="42" rx="20"/>
+    <text x="82" y="752" class="small">six viewpoints cover occlusions</text>
+  </g>
+
+  <!-- Right panel: C row -->
+  <g transform="translate(1010,120)">
+    <rect class="panel" x="0" y="0" width="800" height="800" rx="32"/>
+    <text x="44" y="66" class="panelTitle">C-row mirrored scan poses</text>
+    <text x="44" y="102" class="sub">harvest_c_scan_1 ... harvest_c_scan_6</text>
+
+    <rect x="104" y="642" width="592" height="80" rx="28" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <rect x="500" y="592" width="178" height="36" rx="18" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.6"/>
+    <text x="518" y="616" class="tiny">Panther base + FR3</text>
+    <rect class="robot" x="326" y="600" width="148" height="88" rx="20"/>
+    <circle cx="344" cy="704" r="28" fill="#334155"/>
+    <circle cx="456" cy="704" r="28" fill="#334155"/>
+    <circle cx="344" cy="584" r="28" fill="#334155"/>
+    <circle cx="456" cy="584" r="28" fill="#334155"/>
+
+    <line class="plantStem" x1="400" y1="250" x2="400" y2="520"/>
+    <ellipse class="leaf" cx="355" cy="316" rx="60" ry="20" transform="rotate(-28 355 316)"/>
+    <ellipse class="leaf" cx="448" cy="348" rx="64" ry="22" transform="rotate(22 448 348)"/>
+    <ellipse class="leaf" cx="360" cy="435" rx="72" ry="22" transform="rotate(22 360 435)"/>
+    <ellipse class="leaf" cx="456" cy="456" rx="72" ry="22" transform="rotate(-22 456 456)"/>
+    <circle class="tomato" cx="342" cy="384" r="18"/>
+    <circle class="tomato" cx="460" cy="400" r="20"/>
+    <circle class="tomato" cx="370" cy="496" r="17"/>
+    <circle class="tomato" cx="438" cy="506" r="18"/>
+    <text x="360" y="232" class="label">plant</text>
+
+    <path class="arcC" d="M208 520 C172 360, 242 208, 400 176 C558 208, 628 360, 592 520"/>
+
+    <polygon class="fovC" points="590,510 382,378 418,378"/>
+    <polygon class="fovC" points="564,344 380,382 428,360"/>
+    <polygon class="fovC" points="488,218 386,386 414,352"/>
+    <polygon class="fovC" points="312,218 386,352 414,386"/>
+    <polygon class="fovC" points="236,344 372,360 420,382"/>
+    <polygon class="fovC" points="210,510 382,378 418,378"/>
+
+    <circle cx="590" cy="510" r="26" fill="#16a34a"/><text x="580" y="517" class="poseText">S1</text>
+    <circle cx="564" cy="344" r="26" fill="#16a34a"/><text x="554" y="351" class="poseText">S2</text>
+    <circle cx="488" cy="218" r="26" fill="#16a34a"/><text x="478" y="225" class="poseText">S3</text>
+    <circle cx="312" cy="218" r="26" fill="#16a34a"/><text x="302" y="225" class="poseText">S4</text>
+    <circle cx="236" cy="344" r="26" fill="#16a34a"/><text x="226" y="351" class="poseText">S5</text>
+    <circle cx="210" cy="510" r="26" fill="#16a34a"/><text x="200" y="517" class="poseText">S6</text>
+
+    <circle class="pick" cx="400" cy="560" r="28"/>
+    <text x="387" y="568" class="poseText">P</text>
+    <path d="M400 560 L400 455" fill="none" stroke="#f97316" stroke-width="4" marker-end="url(#arrow-green)"/>
+
+    <rect class="basketBad" x="52" y="724" width="350" height="42" rx="20"/>
+    <text x="82" y="752" class="small">C poses mirror the B-row joint pattern</text>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(300,952)">
+    <circle cx="0" cy="0" r="14" fill="#2563eb"/>
+    <text x="25" y="7" class="tiny">B-row scan pose</text>
+    <circle cx="205" cy="0" r="14" fill="#16a34a"/>
+    <text x="230" y="7" class="tiny">C-row scan pose</text>
+    <circle cx="452" cy="0" r="14" fill="#f97316"/>
+    <text x="477" y="7" class="tiny">pick-front pose before harvest</text>
+    <rect x="752" y="-14" width="44" height="28" fill="#3b82f6" fill-opacity="0.15" stroke="#2563eb" stroke-opacity="0.55"/>
+    <text x="812" y="7" class="tiny">camera field-of-view toward plant</text>
+  </g>
+</svg>

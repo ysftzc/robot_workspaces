@@ -1,0 +1,2 @@
+# Empty components config — lidar is defined in our own URDF instead
+components: []

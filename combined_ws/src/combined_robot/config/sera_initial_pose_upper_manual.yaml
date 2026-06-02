@@ -1,0 +1,7 @@
+initial_pose:
+  frame_id: map
+  x: 0.87
+  y: -0.19
+  yaw: 0.019
+  covariance_xy: 0.25
+  covariance_yaw: 0.06853891909122467
