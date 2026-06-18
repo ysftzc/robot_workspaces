@@ -12,9 +12,7 @@ separate baskets.
 
 ## Demo Video
 
-![Project demo preview](docs/media/ProjeDemo_preview.gif)
-
-[Watch the full MP4 demo video](https://raw.githubusercontent.com/ysftzc/robot_workspaces/main/docs/media/ProjeDemo_readme.mp4)
+[![Project demo preview](docs/media/ProjeDemo_preview.gif)](https://www.youtube.com/watch?v=mCIoyJSAJ8w&t=79s)
 
 ## Highlights
 
