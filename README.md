@@ -13,6 +13,7 @@ separate baskets.
 ## Demo Video
 
 [![Project demo preview](docs/media/ProjeDemo_preview.gif)](https://www.youtube.com/watch?v=mCIoyJSAJ8w&t=79s)
+
 ▶️ [Watch the full demo on YouTube](https://www.youtube.com/watch?v=mCIoyJSAJ8w&t=79s)
 
 ## Highlights
