@@ -288,7 +288,7 @@ The final demo world contains 59 tomato models:
 ### Gazebo opens but the world is blank
 
 Wait a few seconds for assets and controllers to load. If it stays blank,
-restart Gazebo and verify that the `combined_robot` package was built and
+restart Gazebo and verify that the "combined_robot" package was built and
 sourced:
 
 ```bash
